@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="700" viewBox="0 0 1920 700">
+  <defs>
+    <!-- Red sky -->
+    <linearGradient id="skyRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b91c1c"></stop>
+      <stop offset="40%" stop-color="#dc2626"></stop>
+      <stop offset="100%" stop-color="#7f1d1d"></stop>
+    </linearGradient>
+
+    <!-- Soft glow circles -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <!-- Red background -->
+  <rect width="1920" height="700" fill="url(#skyRed)"></rect>
+
+  <!-- Glows / bokeh -->
+  <g opacity="0.45">
+    <circle cx="250" cy="80" r="90" fill="url(#glow)"></circle>
+    <circle cx="520" cy="60" r="70" fill="url(#glow)"></circle>
+    <circle cx="880" cy="90" r="110" fill="url(#glow)"></circle>
+    <circle cx="1250" cy="70" r="90" fill="url(#glow)"></circle>
+    <circle cx="1580" cy="100" r="80" fill="url(#glow)"></circle>
+  </g>
+
+  <!-- Snow particles -->
+  <g fill="#f9fafb" opacity="0.9">
+    <!-- random scatter -->
+    <circle cx="140" cy="40" r="3"></circle>
+    <circle cx="260" cy="30" r="2"></circle>
+    <circle cx="400" cy="55" r="3"></circle>
+    <circle cx="560" cy="38" r="2.2"></circle>
+    <circle cx="700" cy="28" r="2"></circle>
+    <circle cx="880" cy="45" r="2.6"></circle>
+    <circle cx="1040" cy="32" r="2"></circle>
+    <circle cx="1200" cy="50" r="3"></circle>
+    <circle cx="1380" cy="36" r="2.4"></circle>
+    <circle cx="1560" cy="46" r="2"></circle>
+    <circle cx="1740" cy="34" r="2.4"></circle>
+
+    <circle cx="190" cy="120" r="2.2"></circle>
+    <circle cx="330" cy="135" r="2.8"></circle>
+    <circle cx="510" cy="125" r="2.2"></circle>
+    <circle cx="690" cy="145" r="2.8"></circle>
+    <circle cx="870" cy="130" r="2.2"></circle>
+    <circle cx="1060" cy="140" r="2.8"></circle>
+    <circle cx="1240" cy="135" r="2.2"></circle>
+    <circle cx="1420" cy="145" r="2.8"></circle>
+    <circle cx="1600" cy="130" r="2.2"></circle>
+    <circle cx="1780" cy="145" r="2.8"></circle>
+  </g>
+
+  <!-- Snowy ground -->
+  <path d="M0 470
+       C 320 430, 640 450, 960 440
+       C 1280 430, 1600 450, 1920 430
+       L 1920 700 L 0 700 Z" fill="#ffffff"></path>
+  <path d="M0 510
+       C 320 480, 640 500, 960 490
+       C 1280 480, 1600 500, 1920 480
+       L 1920 700 L 0 700 Z" fill="#e5e7eb" opacity="0.9"></path>
+
+  <!-- Left trees -->
+  <g transform="translate(130,410)">
+    <!-- trunk -->
+    <rect x="18" y="40" width="14" height="40" fill="#374151"></rect>
+    <!-- tree layers -->
+    <polygon points="25,-10 0,40 50,40" fill="#14532d"></polygon>
+    <polygon points="25,-30 -5,20 55,20" fill="#166534"></polygon>
+    <polygon points="25,-50 -10,0 60,0" fill="#15803d"></polygon>
+    <!-- snow caps -->
+    <polygon points="25,-50 15,-30 35,-30" fill="#f9fafb" opacity="0.9"></polygon>
+    <polygon points="25,-30 10,-10 40,-10" fill="#f9fafb" opacity="0.85"></polygon>
+  </g>
+
+  <g transform="translate(210,430) scale(0.75)">
+    <rect x="18" y="40" width="14" height="40" fill="#374151"></rect>
+    <polygon points="25,-10 0,40 50,40" fill="#14532d"></polygon>
+    <polygon points="25,-30 -5,20 55,20" fill="#166534"></polygon>
+    <polygon points="25,-50 -10,0 60,0" fill="#15803d"></polygon>
+    <polygon points="25,-50 15,-30 35,-30" fill="#f9fafb" opacity="0.9"></polygon>
+    <polygon points="25,-30 10,-10 40,-10" fill="#f9fafb" opacity="0.85"></polygon>
+  </g>
+
+  <!-- Right trees -->
+  <g transform="translate(1620,410)">
+    <rect x="18" y="40" width="14" height="40" fill="#374151"></rect>
+    <polygon points="25,-10 0,40 50,40" fill="#14532d"></polygon>
+    <polygon points="25,-30 -5,20 55,20" fill="#166534"></polygon>
+    <polygon points="25,-50 -10,0 60,0" fill="#15803d"></polygon>
+    <polygon points="25,-50 15,-30 35,-30" fill="#f9fafb" opacity="0.9"></polygon>
+    <polygon points="25,-30 10,-10 40,-10" fill="#f9fafb" opacity="0.85"></polygon>
+  </g>
+
+  <g transform="translate(1710,430) scale(0.75)">
+    <rect x="18" y="40" width="14" height="40" fill="#374151"></rect>
+    <polygon points="25,-10 0,40 50,40" fill="#14532d"></polygon>
+    <polygon points="25,-30 -5,20 55,20" fill="#166534"></polygon>
+    <polygon points="25,-50 -10,0 60,0" fill="#15803d"></polygon>
+    <polygon points="25,-50 15,-30 35,-30" fill="#f9fafb" opacity="0.9"></polygon>
+    <polygon points="25,-30 10,-10 40,-10" fill="#f9fafb" opacity="0.85"></polygon>
+  </g>
+</svg>

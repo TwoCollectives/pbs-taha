@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Pegasus – Affiliate Tools</title>
+
+    <!-- Core Pegasus Styles -->
+    <link href="/css/styles.css" rel="stylesheet" />
+
+    <!-- Optional: Montserrat font if not already in styles.css -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Layout */
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        background: #020617;
+        color: #f9fafb;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      /* Header */
+
+      .header {
+        background: #020617;
+        border-bottom: 3px solid #fde68a;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+      }
+
+      .logo-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-row img {
+        height: 34px;
+        width: auto;
+      }
+
+      .logo-text {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #f9fafb;
+      }
+
+      .nav {
+        display: flex;
+        gap: 14px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      .nav a {
+        color: #e5e7eb;
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+        letter-spacing: 0.12em;
+        font-weight: 500;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .nav a:hover {
+        color: #fde68a;
+        border-color: #fde68a;
+      }
+
+      /* Hero – Christmas red background, more height */
+
+      .hero {
+        position: relative;
+        background-color: #7f1d1d; /* fallback */
+        background-image: url("/images/xmas2025.svg");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #111827;
+        padding: 52px 0 52px;
+        min-height: 460px;
+        overflow: hidden;
+      }
+
+      .hero-inner {
+        max-width: 860px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-kicker {
+        font-size: 1.1rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #fde68a;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 3.4vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.05;
+        margin-bottom: 8px;
+      }
+
+      .hero-tagline {
+        font-size: 0.9rem;
+        color: #fef9c3;
+        max-width: 640px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .hero-subtitle {
+        font-size: 0.98rem;
+        color: #fefce8;
+        max-width: 640px;
+        margin-bottom: 10px;
+      }
+
+      .hero-commission {
+        font-size: 0.96rem;
+        color: #fef9c3;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .hero-commission strong {
+        color: #fde68a;
+      }
+
+      .hero-bullets {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 0 14px 0;
+        font-size: 0.88rem;
+      }
+
+      .hero-bullets li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .bullet-icon {
+        color: #bbf7d0;
+        margin-top: 2px;
+      }
+
+      .hero-metrics-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .metric-pill {
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 999px;
+        padding: 5px 10px;
+        border: 1px solid rgba(254, 249, 195, 0.9);
+        font-size: 0.78rem;
+        display: inline-flex;
+        gap: 6px;
+      }
+
+      .metric-label {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #fef9c3;
+        font-weight: 600;
+      }
+
+      .metric-value {
+        font-weight: 700;
+        color: #f9fafb;
+      }
+
+      .hero-subtag {
+        font-size: 0.84rem;
+        color: #fefce8;
+        margin: 6px 0 6px;
+        font-weight: 500;
+      }
+
+      .hero-proof {
+        display: inline-block;
+        margin: 4px 0 10px;
+      }
+
+      .hero-proof img {
+        max-width: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(254, 249, 195, 0.9);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9);
+        display: block;
+      }
+
+      .hero-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 12px 0 6px;
+      }
+
+      .hero-note {
+        font-size: 0.8rem;
+        color: #000000;
+        max-width: 520px;
+      }
+
+      .hero-note span {
+        font-weight: 700;
+        color: #000000;
+      }
+
+      /* Buttons – light gold */
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(90deg, #fde68a, #fef9c3);
+        color: #1f2937;
+        border-radius: 999px;
+        border: none;
+        padding: 9px 18px;
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 12px 30px rgba(254, 249, 195, 0.7);
+        transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(254, 249, 195, 0.85);
+        opacity: 0.97;
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+        box-shadow: 0 10px 26px rgba(250, 204, 21, 0.7);
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border-radius: 999px;
+        padding: 8px 16px;
+        border: 1px solid #fde68a;
+        color: #fde68a;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        background: rgba(15, 23, 42, 0.4);
+        transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn-outline:hover {
+        background: rgba(250, 250, 210, 0.08);
+        box-shadow: 0 0 0 1px rgba(254, 249, 195, 0.5);
+      }
+
+      .btn-secondary {
+        padding: 9px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        background: rgba(3, 7, 18, 0.9);
+        color: #f9fafb;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(15, 23, 42, 1);
+        border-color: #fde68a;
+        color: #fef3c7;
+      }
+
+      .btn-giant {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 420px;
+        background: linear-gradient(90deg, #fde68a, #fef9c3);
+        color: #111827;
+        border-radius: 999px;
+        border: none;
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 18px 50px rgba(254, 249, 195, 0.8);
+        margin-top: 8px;
+      }
+
+      .btn-giant:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 22px 60px rgba(254, 249, 195, 0.9);
+      }
+
+      .btn-giant:active {
+        transform: translateY(0);
+        box-shadow: 0 16px 40px rgba(250, 204, 21, 0.75);
+      }
+
+      /* Sections */
+
+      .section {
+        padding: 28px 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        color: #9ca3af;
+      }
+
+      .card-dark {
+        background: radial-gradient(circle at top, #020617 0%, #020617 100%);
+        border-radius: 16px;
+        padding: 18px 16px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+      }
+
+      .card-light {
+        background: #fefce8;
+        color: #111827;
+        border-radius: 16px;
+        padding: 18px 16px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+      }
+
+      .card-light h2,
+      .card-light h3 {
+        color: #111827;
+      }
+
+      .card-light p {
+        color: #111827;
+      }
+
+      /* Link Generator */
+
+      .link-gen-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 620px;
+      }
+
+      .link-gen-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .link-gen-label {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #facc15;
+        font-weight: 600;
+      }
+
+      .link-gen-help {
+        font-size: 0.78rem;
+        color: #9ca3af;
+      }
+
+      .link-gen-input-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 600px) {
+        .link-gen-input-wrap {
+          flex-direction: column;
+        }
+      }
+
+      .field-input {
+        flex: 1;
+        padding: 9px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        background: rgba(3, 7, 18, 0.9);
+        color: #f9fafb;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .field-input::placeholder {
+        color: #6b7280;
+      }
+
+      .field-input:focus {
+        border-color: #fde68a;
+        box-shadow: 0 0 0 1px rgba(254, 249, 195, 0.6);
+      }
+
+      .generated-link-wrap {
+        margin-top: 10px;
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .generated-link-label {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .generated-link-box {
+        margin-top: 2px;
+        display: flex;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 600px) {
+        .generated-link-box {
+          flex-direction: column;
+        }
+      }
+
+      .generated-link-input {
+        flex: 1;
+        padding: 9px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        background: rgba(3, 7, 18, 0.9);
+        color: #f9fafb;
+        font-size: 0.86rem;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .status {
+        margin-top: 4px;
+        font-size: 0.78rem;
+        color: #bbf7d0;
+        min-height: 1em;
+      }
+
+      .status.error {
+        color: #fca5a5;
+      }
+
+      /* Terms */
+
+      .terms-list {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .terms-list p {
+        margin: 0 0 10px 0;
+      }
+
+      .terms-list ul {
+        margin: 0 0 10px 20px;
+        padding-left: 16px;
+      }
+
+      .terms-list li {
+        margin-bottom: 6px;
+      }
+
+      /* Footer */
+
+      .footer {
+        border-top: 1px solid #020617;
+        padding: 14px 16px 18px;
+        font-size: 0.76rem;
+        color: #6b7280;
+        text-align: center;
+        background: #020617;
+        margin-top: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="container header-inner">
+          <div class="logo-row">
+            <img src="/images/favicon.ico" alt="Pegasus" />
+            <div class="logo-text">Pegasus • Affiliate Hub</div>
+          </div>
+          <nav class="nav">
+            <a href="#link-generator">Link Generator</a>
+            <a href="#terms">Terms</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-kicker">BIZOPP IS BACK ON CLICKBANK</div>
+            <h1 class="hero-title">From the Diamond vendor behind <strong>"Pocket Sized ATM"</strong> - ClickBank's #1 BizOpp offer.</h1>
+            <p class="hero-subtitle"> Comes "PEGASUS" - the current top converting bizopp offer on Clickbank <br>               Use the generator below to get your unique link, or email us for a custom deal.
+            </p>
+           <!-- <p class="hero-subtitle">
+              Pegasus is our phone-based “ATM” bizopp offer with a fully built funnel and backend.
+              Use the generator below to get your unique link, or email us for a custom deal.
+            </p>-->
+
+            <p class="hero-commission">
+              <strong>Default Commission: 75% on every sale.</strong>
+              That’s across the <em>entire</em> funnel — front-end and upsells.
+              For high-volume partners, we can go to <strong>85–90% on request.</strong>
+            </p>
+
+            <ul class="hero-bullets">
+              <li>
+                <span class="bullet-icon">✅</span>
+                <span> VSL + upsell funnel built by a direct-response team doing 8–figures in sales.</span>
+              </li>
+              <li>
+                <span class="bullet-icon">✅</span>
+                <span>List + media-buyer friendly: built for cold traffic from ClickBank affiliates.</span>
+              </li>
+              <li>
+                <span class="bullet-icon">✅</span>
+                <span>Just send some clicks and see what happens.</span>
+              </li>
+            </ul>
+
+            <div class="hero-metrics-row">
+              <div class="metric-pill">
+                <span class="metric-label">EPC</span>
+                <span class="metric-value">$3.00+</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-label">CVR</span>
+                <span class="metric-value">3%+</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-label">AOV</span>
+                <span class="metric-value">$100+</span>
+              </div>
+            </div>
+
+            <p class="hero-subtag">
+              Early testing stats of Pegasus by top affiliates on <strong>COLD FB TRAFFIC</strong>:
+            </p>
+
+            <div class="hero-proof">
+              <img src="/images/affproof.png" alt="Pegasus early testing stats proof" />
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="#link-generator" class="btn-primary">Generate My Pegasus Link</a>
+              <a
+                href="mailto:affiliates@getpegasusofficial.com?subject=Pegasus%20High%20Commission%20Request&body=Hey%20Pegasus%20Team%2C%0D%0A%0D%0AMy%20ClickBank%20affiliate%20ID%20is%3A%20_______%0D%0AMy%20traffic%20source(s)%3A%20_______%0D%0AEstimated%20daily%20clicks%2Fvolume%3A%20_______%0D%0A%0D%0AI%E2%80%99d%20like%20to%20apply%20for%20an%2085%E2%80%9390%%20commission%20deal%20on%20Pegasus.%0D%0A%0D%0AThanks%2C%0D%0A_______"
+                class="btn-outline"
+              >
+                Email For 85–90% Commissions
+              </a>
+            </div>
+
+            <p class="hero-note">
+              <span>IMPORTANT:</span> Please include your ClickBank affiliate ID in your email so we can
+              tag your account correctly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT PRODUCT -->
+      <section class="section">
+        <div class="container">
+          <div class="card-light">
+            <h2 style="font-size:1.05rem; margin-top:0; margin-bottom:8px;">
+              About The Product – Pegasus
+            </h2>
+            <p style="font-size:0.9rem; margin-bottom:8px;">
+              Pegasus is a phone-based “cash-flow system” that shows everyday people how to turn their
+              smartphone into a simple, automated income stream using step-by-step training and done-for-you
+              tools.
+            </p>
+            <p style="font-size:0.9rem; margin-bottom:8px;">
+              The offer is built for mainstream cold traffic: simple narrative, strong social proof and a
+              clean, money-based promise. We’ve tested it across multiple lists and media placements before
+              opening it up to affiliates.
+            </p>
+            <p style="font-size:0.9rem; margin-bottom:0;">
+              Your subscribers get a premium customer experience, 24/7 support, and a stacked members area.
+              You get a high AOV & strong EPCs, that blow ANY other offer out the water...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LINK GENERATOR -->
+      <section id="link-generator" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Affiliate Link Generator</h2>
+            <div class="section-subtitle">
+              Your traffic goes to our main VSL
+             <!-- <code>mypegasusnow.com/cb/discovery</code>.-->
+            </div>
+          </div>
+
+          <div class="card-dark">
+            <form id="affiliateLinkForm" class="link-gen-form" autocomplete="off">
+              <div class="link-gen-row">
+                <label for="affiliateId" class="link-gen-label">
+                  Step 1 — Enter Your ClickBank Affiliate ID
+                </label>
+                <div class="link-gen-help">
+                  Use the <strong>nickname</strong> from your ClickBank account (example:
+                  <code>supermarketer</code>). No spaces.
+                </div>
+                <div class="link-gen-input-wrap">
+                  <input
+                    type="text"
+                    id="affiliateId"
+                    name="affiliateId"
+                    class="field-input"
+                    placeholder="e.g. supermarketer123"
+                    required
+                  />
+                  <button type="submit" class="btn-primary">Generate Link</button>
+                </div>
+              </div>
+            </form>
+
+            <div id="generatedLinkBlock" class="generated-link-wrap">
+              <div class="generated-link-label">Step 2 — Copy Your Unique Link</div>
+              <div class="generated-link-box">
+                <input
+                  type="text"
+                  id="generatedLink"
+                  class="generated-link-input"
+                  readonly
+                />
+                <button type="button" id="copyLinkBtn" class="btn-secondary">
+                  Copy Link
+                </button>
+              </div>
+              <div id="statusMessage" class="status"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIA BUYERS SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="card-light">
+            <h2 style="font-size:1.1rem; margin-top:0; margin-bottom:8px;">
+              Are You A Big-Time Media Buyer Or List Owner?
+            </h2>
+            <p style="font-size:0.9rem; margin-bottom:8px;">
+              If you’re running serious paid traffic (FB, native, email drops, SMS, YouTube, etc.) and want
+              a funnel that can sustain scale, we’d rather talk to you personally.
+            </p>
+            <p style="font-size:0.9rem; margin-bottom:8px;">
+              Email us at <strong>affiliates@getpegasusofficial.com</strong> and put
+              <strong>“Media Buyer”</strong> in the subject line. Tell us about your list, traffic sources
+              and average volume — we’ll see if you qualify for a custom <strong>85–90% commission</strong>
+              deal and priority support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TERMS -->
+      <section id="terms" class="section">
+        <div class="container">
+          <h2 class="section-title" style="margin-bottom:12px;">Affiliate Terms Of Service</h2>
+          <div class="card-light terms-list">
+            <p>
+              We’re happy to partner with you to promote Pegasus. To protect customers, the brand, and your
+              account, please review and follow these terms before sending traffic.
+            </p>
+
+            <p><strong>1. Compliance & Honest Marketing</strong></p>
+            <ul>
+              <li>
+                All affiliates must comply with all applicable laws and regulations, including but not limited
+                to FTC guidelines on advertising, email marketing and testimonials.
+              </li>
+              <li>
+                No deceptive, misleading, or fabricated claims. Do not promise specific income results, fixed
+                daily income, or “guaranteed” outcomes.
+              </li>
+              <li>
+                All screenshots, case studies and testimonials you use must either be provided by us or be
+                real results you can substantiate.
+              </li>
+            </ul>
+
+            <p><strong>2. Traffic Sources & Allowed Promotion</strong></p>
+            <ul>
+              <li>
+                You may promote via email, social media, paid ads, native, YouTube, blogs, and similar
+                placements that comply with network rules and local laws.
+              </li>
+              <li>
+                You may not run ads that pretend to be news sites, government sites, bank portals or any
+                other “fake authority” style lander.
+              </li>
+              <li>
+                You may not misrepresent yourself as the Pegasus brand owner, legal entity or support team.
+              </li>
+            </ul>
+
+            <p><strong>3. Email, SMS & List Compliance</strong></p>
+            <ul>
+              <li>
+                All email and SMS campaigns must be permission-based and comply with CAN-SPAM and any local
+                anti-spam regulations.
+              </li>
+              <li>
+                No spam, purchased lists, or forced opt-ins. Unsub links must be visible and functional in
+                every send.
+              </li>
+              <li>
+                You may not send from “Pegasus” or brand-impersonation sender names or domains that could
+                confuse subscribers into thinking they are hearing directly from us.
+              </li>
+            </ul>
+
+            <p><strong>4. Restricted Angles & Content</strong></p>
+            <ul>
+              <li>
+                No hate, harassment, adult content, illegal activity, or promotion of violence in any form.
+              </li>
+              <li>
+                Do not use terms such as “scam,” “fraud,” or similar negative language in URLs, page titles
+                or ad copy when promoting Pegasus.
+              </li>
+              <li>
+                You may not run “fake review” or “fake news” style pages that pretend to be independent
+                journalists while secretly acting as advertorials.
+              </li>
+            </ul>
+
+            <p><strong>5. Brand & Asset Usage</strong></p>
+            <ul>
+              <li>
+                You may use our approved logos, product images and creatives on this page or provided by our
+                team. Do not edit them in a way that changes the core message or adds non-compliant claims.
+              </li>
+              <li>
+                You may not create your own products, courses or memberships that appear to be official
+                Pegasus programs.
+              </li>
+            </ul>
+
+            <p><strong>6. Commission, Adjustments & Termination</strong></p>
+            <ul>
+              <li>
+                Default commission is <strong>75%</strong> across the Pegasus funnel for approved affiliates.
+              </li>
+              <li>
+                VIP commission structures of <strong>85–90%</strong> are granted manually and may be adjusted
+                if refund rates, chargebacks or complaint rates are outside normal ranges.
+              </li>
+              <li>
+                We reserve the right to withhold or reverse commissions and/or terminate your affiliate
+                status if we detect fraud, abuse, policy violations or traffic that creates excessive risk to
+                customers or the brand.
+              </li>
+            </ul>
+
+            <p style="margin-bottom:0;">
+              By promoting Pegasus, you agree to these terms. If you have questions or need clarification
+              before you start sending traffic, email us at
+              <strong>affiliates@getpegasusofficial.com</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        Pegasus™ &copy; <span id="year"></span>. For affiliate use only. Do not share this page publicly.
+      </footer>
+    </div>
+
+    <script>
+      // YEAR IN FOOTER
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // AFFILIATE LINK GENERATOR
+      const form = document.getElementById("affiliateLinkForm");
+      const affiliateIdInput = document.getElementById("affiliateId");
+      const generatedLinkBlock = document.getElementById("generatedLinkBlock");
+      const generatedLinkInput = document.getElementById("generatedLink");
+      const copyLinkBtn = document.getElementById("copyLinkBtn");
+      const statusMessage = document.getElementById("statusMessage");
+
+      const BASE_URL =
+        "https://mypegasusnow.com/cb/discovery?pg=vdrd&affiliate=";
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (statusMessage) {
+          statusMessage.textContent = "";
+          statusMessage.classList.remove("error");
+        }
+
+        let affiliateId = affiliateIdInput.value.trim();
+
+        if (!affiliateId) {
+          if (statusMessage) {
+            statusMessage.textContent =
+              "Please enter your ClickBank affiliate ID.";
+            statusMessage.classList.add("error");
+          }
+          return;
+        }
+
+        affiliateId = affiliateId.replace(/\s+/g, "");
+
+        const fullLink = BASE_URL + encodeURIComponent(affiliateId);
+
+        generatedLinkInput.value = fullLink;
+        generatedLinkBlock.style.display = "flex";
+        generatedLinkInput.focus();
+        generatedLinkInput.select();
+        if (statusMessage) {
+          statusMessage.textContent =
+            "Link generated. You can copy it and start sending traffic.";
+          statusMessage.classList.remove("error");
+        }
+      });
+
+      copyLinkBtn.addEventListener("click", function () {
+        const link = generatedLinkInput.value;
+        if (!link) {
+          if (statusMessage) {
+            statusMessage.textContent = "Generate your link first.";
+            statusMessage.classList.add("error");
+          }
+          return;
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(link)
+            .then(function () {
+              if (statusMessage) {
+                statusMessage.textContent = "Copied to clipboard.";
+                statusMessage.classList.remove("error");
+              }
+            })
+            .catch(function () {
+              fallbackCopy();
+            });
+        } else {
+          fallbackCopy();
+        }
+
+        function fallbackCopy() {
+          try {
+            generatedLinkInput.focus();
+            generatedLinkInput.select();
+            const success = document.execCommand("copy");
+            if (statusMessage) {
+              statusMessage.textContent = success
+                ? "Copied to clipboard."
+                : "Select the link and press Ctrl+C (Cmd+C on Mac) to copy.";
+              if (!success) statusMessage.classList.add("error");
+              else statusMessage.classList.remove("error");
+            }
+          } catch (err) {
+            if (statusMessage) {
+              statusMessage.textContent =
+                "Select the link and press Ctrl+C (Cmd+C on Mac) to copy.";
+              statusMessage.classList.add("error");
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

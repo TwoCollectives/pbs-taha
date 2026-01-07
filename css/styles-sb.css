@@ -1,0 +1,316 @@
+/* WistiaV2 Styles for index-sb.html */
+/* This file is isolated to prevent conflicts with other pages */
+
+/* Import base styles but override with WistiaV2 approach */
+@import url('/css/styles.css');
+
+/* Override any conflicting video styles */
+.wistia-video-container {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 910px !important;
+  margin: 0 auto !important;
+  background: #000 !important;
+}
+
+/* WistiaV2-style responsive padding */
+.wistia_responsive_padding {
+  padding: 56.25% 0 0 0 !important;
+  position: relative !important;
+  background: #000 !important;
+}
+
+.wistia_responsive_wrapper {
+  height: 100% !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+
+.wistia_embed {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 767px) {
+  .wistia-video-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  .wistia_responsive_padding {
+    padding: 177.78% 0 0 0 !important; /* 9:16 aspect ratio for mobile */
+  }
+  
+  /* Ensure mobile video fills properly */
+  .wistia_embed {
+    object-fit: cover !important;
+  }
+}
+
+/* Desktop-specific overrides */
+@media (min-width: 768px) {
+  .wistia-video-container {
+    height: 515px !important;
+  }
+}
+
+/* Loading state styling */
+.video-loading {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  z-index: 10 !important;
+}
+
+/* Hide loading when video is ready */
+.video-ready .video-loading {
+  display: none !important;
+}
+
+/* Ensure no conflicting fullscreen styles */
+.scrollable-fullscreen {
+  display: none !important;
+}
+
+.fullscreen-video {
+  display: none !important;
+}
+
+/* Remove any Alpine.js video state classes that might conflict */
+[class*="hidden-on-play"] {
+  display: block !important;
+}
+
+/* Ensure proper video container styling */
+.wistia-video-container .wistia_embed {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Continue button responsive sizing */
+.continue-button-responsive {
+  width: 350px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 1024px) {
+  .continue-button-responsive {
+    width: 441px !important;
+  }
+}
+
+/* Ensure proper header styling */
+.font-roboto-condensed {
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.text-header-red {
+  color: #dc2626 !important;
+}
+
+/* Remove any conflicting video button styles */
+.pulsing-video-button {
+  display: none !important;
+}
+
+/* Ensure proper modal styling */
+.bg-opacity-80 {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Ensure proper footer styling */
+footer {
+  background: white !important;
+}
+
+/* Remove any conflicting Alpine.js states */
+[x-cloak] {
+  display: none !important;
+}
+
+/* Ensure proper responsive behavior */
+@media (max-width: 767px) {
+  .hidden.md\\:block {
+    display: block !important;
+  }
+}
+
+/* Ensure proper video container centering */
+.wistia-video-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Remove any conflicting video overlay styles */
+.video-overlay {
+  display: none !important;
+}
+
+.click-to-play-overlay {
+  display: none !important;
+}
+
+/* Ensure proper video aspect ratio */
+.wistia_embed iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+}
+
+/* Remove any conflicting video state management */
+[class*="video-state"] {
+  display: none !important;
+}
+
+/* Ensure proper video loading */
+.wistia_embed .w-video-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Remove any conflicting video controls */
+.custom-video-controls {
+  display: none !important;
+}
+
+/* Ensure proper video container background */
+.wistia-video-container {
+  background: #000 !important;
+}
+
+/* Remove any conflicting video button animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulsing {
+  animation: pulse 2s infinite !important;
+}
+
+/* Ensure proper video container positioning */
+.wistia-video-container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Remove any conflicting video fullscreen styles */
+.video-fullscreen {
+  display: none !important;
+}
+
+/* Ensure proper video container sizing */
+.wistia-video-container {
+  max-width: 910px !important;
+  width: 100% !important;
+}
+
+@media (max-width: 910px) {
+  .wistia-video-container {
+    max-width: 100% !important;
+  }
+}
+
+/* Remove any conflicting video state classes */
+[class*="video-playing"] {
+  display: block !important;
+}
+
+[class*="video-paused"] {
+  display: block !important;
+}
+
+[class*="video-loading"] {
+  display: flex !important;
+}
+
+/* Ensure proper video container styling */
+.wistia-video-container {
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove any conflicting video overlay styles */
+.video-overlay-container {
+  display: none !important;
+}
+
+/* Ensure proper video container background */
+.wistia-video-container {
+  background: #000 !important;
+}
+
+/* Remove any conflicting video button styles */
+.video-play-button {
+  display: none !important;
+}
+
+/* Ensure proper video container positioning */
+.wistia-video-container {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Remove any conflicting video state management */
+[class*="video-state"] {
+  display: none !important;
+}
+
+/* Ensure proper video container styling */
+.wistia-video-container {
+  box-shadow: none !important;
+  margin: 0 auto !important;
+}
+
+/* Remove any conflicting video overlay styles */
+.video-overlay {
+  display: none !important;
+}
+
+/* Ensure proper video container background */
+.wistia-video-container {
+  background: #000 !important;
+}
+
+/* Remove any conflicting video button styles */
+.video-play-button {
+  display: none !important;
+}
+
+/* Ensure proper video container positioning */
+.wistia-video-container {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Remove any conflicting video state management */
+[class*="video-state"] {
+  display: none !important;
+}
+
+/* Ensure proper video container styling */
+.wistia-video-container {
+  box-shadow: none !important;
+  margin: 0 auto !important;
+}

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCMBEP4S50"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TCMBEP4S50');
+  </script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      let vtid = params.get("vtid");
+
+      // If Cloudflare did its job, vtid will be "a" or "b"
+      // Track it as a clean, simple GA4 event:
+      if (vtid === "a" || vtid === "b") {
+        gtag('event', 'variant_pageview', { variant: vtid });
+      }
+    });
+  </script>
+
+  <link rel="canonical" href="/cb/index-b.html">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/cb/page-loader.js"></script>
+
+  <link href="/css/styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pegasus</title>
+
+  <link rel="preconnect" href="https://fast.wistia.com/" crossorigin>
+  <link rel="preconnect" href="https://embed-cloudfront.wistia.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <script>
+    window.clickbank = { vendor: "getpegasus" }
+  </script>
+  <script src="https://scripts.clickbank.net/hop.min.js" defer></script>
+  <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+
+  <!-- Preload loader + mobile background so something shows instantly -->
+  <link rel="preload" as="image" href="/images/loading-video.gif" />
+  <link rel="preload" as="image" href="/images/mobile-loading.webp" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/apple-touch-icon.png">
+
+  <style>
+    /* ================================
+       ✅ TABLET+MOBILE VIDEO FIX
+       ================================ */
+
+    .landscape-only { display: block; }
+    .portrait-only  { display: none; }
+
+    @media (orientation: portrait) and (max-width: 1024px) {
+      .portrait-only  { display: block !important; }
+      .landscape-only { display: none !important; }
+
+      .mobile-video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        background-color: #000;
+        background-image: url("/images/mobile-loading.webp");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .mobile-video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        background-color: #000;
+        background-image: url("/images/mobile-loading.webp");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        min-height: calc(100vw * 1.25);
+      }
+    }
+
+    .comments {
+      max-width: 910px;
+      margin: 40px auto;
+      text-align: left;
+    }
+
+    .comments .comment {
+      display: flex;
+      align-items: flex-start;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .comments .comment img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 12px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .comments .comment-content { flex: 1; }
+    .comments .comment-content .name {
+      font-weight: bold;
+      color: #050505;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .comments .comment-content p {
+      margin: 4px 0;
+      color: #111;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    .comments .comment-footer {
+      font-size: 14px;
+      color: #65676b;
+      margin-top: 6px;
+    }
+    .comments .comment-footer span {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .comments .comment-footer span:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Testimonials - Facebook Style */
+    .testimonials {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border, #e4e7ec);
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
+    }
+
+    .testimonials > h2,
+    .testimonials > .testimonials-container {
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonials > h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--foreground, #171a1f);
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    @media (min-width: 768px) { .testimonials > h2 { font-size: 2.25rem; } }
+
+    .testimonials .testimonials-container {
+      background: var(--background, #ffffff);
+      border: 1px solid var(--border, #e4e7ec);
+      border-radius: 0.5rem;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .testimonials .testimonial-thread {
+      border-bottom: 1px solid var(--border, #e4e7ec);
+      padding-bottom: 1rem;
+    }
+    .testimonials .testimonial-thread:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .testimonials .comment { display: flex; gap: 0.75rem; margin-top: 1rem; }
+    .testimonials .comment.reply { margin-left: 3rem; margin-top: 0.75rem; }
+
+    .testimonials .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e9edf2;
+    }
+
+    .testimonials .comment-content { flex: 1; }
+
+    .testimonials .comment-bubble {
+      background: #f0f2f5;
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .testimonials .comment-name {
+      font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #1877f2;
+    }
+
+    .testimonials .comment-text {
+      font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+      font-size: 0.875rem;
+      color: var(--foreground, #171a1f);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+   /* ✅ FIX: keep Like / Reply / time consistent + keep like-count pinned right */
+.testimonials .comment-actions{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground, #5c6370);
+  padding-left: 0.25rem;
+
+  width: 100%;
+  flex-wrap: nowrap;      /* key */
+  min-width: 0;
+}
+
+.testimonials .comment-actions > span{
+  white-space: nowrap;    /* prevents weird line breaks like “Like” alone */
+}
+
+.testimonials .comment-likes{
+  margin-left: auto;      /* pins it to the far right */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;         /* prevents it from squishing / dropping */
+}
+
+/* ✅ On small screens allow wrap so it doesn't overflow */
+@media (max-width: 520px){
+  .testimonials .comment-actions{
+    flex-wrap: wrap;
+  }
+  .testimonials .comment-likes{
+    margin-left: 0;
+  }
+}
+
+.testimonials .comment-action { cursor: pointer; }
+.testimonials .comment-action:hover { text-decoration: underline; }
+
+.testimonials .comment-actions > span{
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+    .testimonials .like-icon {
+      width: 20px;
+      height: 20px;
+      background: #1877f2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonials .like-icon svg { width: 12px; height: 12px; fill: white; }
+
+    /* ✅ FIX: check image goes UNDER comment (inside comment-content) */
+   /* ✅ FIXED: check image aligns cleanly under the bubble */
+.testimonials .proof-check{
+  display: block;
+
+  /* spacing */
+  margin-top: 8px;
+
+  /* align with the bubble (same left/right as comment-bubble padding) */
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  /* sizing */
+  width: calc(100% - 2rem);
+  max-width: 520px;
+  height: auto;
+
+  /* styling */
+  border-radius: 10px;
+  border: 1px solid #e4e7ec;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+
+  /* prevents tiny gaps below images */
+  vertical-align: middle;
+}
+
+  </style>
+
+</head>
+
+<body class="relative font-sans h-100 m-0 p-0 min-h-screen flex flex-col">
+  <main class="flex-grow">
+
+    <!-- Modal -->
+    <div x-data="{ showModal: false }" x-init="
+      document.addEventListener('mouseleave', (event) => {
+        if (event.clientY <= 0) { showModal = true; }
+      });
+    ">
+
+      <!-- Backdrop -->
+      <div x-show="showModal" x-cloak class="bg-opacity-80 fixed inset-0 z-[2000] flex items-center justify-center bg-black">
+        <div class="relative w-full max-w-2xl rounded-lg border-4 border-red-500 bg-white p-6 shadow-xl" @click.away="showModal = false">
+          <button type="button" class="absolute top-2 right-2 text-gray-700 hover:text-gray-900" @click="showModal = false" aria-label="Close modal">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <h2 class="text-center font-serif text-4xl font-bold text-red-500">
+            WAIT! <span class="text-cyan-700">In Just 1:47...</span>
+          </h2>
+          <h3 class="mt-2 px-10 text-center font-serif text-3xl font-semibold text-cyan-700">
+            I'll Reveal The 7Min A Day System That Makes Me More Than Most CEO's, Doctors &amp; Lawyers Combined!
+          </h3>
+
+          <div class="mt-4 flex items-center gap-4">
+            <img src="/images/popup-img.webp" alt="Man in a chair" class="h-48 w-56 rounded-lg shadow">
+            <p class="font-serif text-lg text-gray-700">
+              My wife and I were on the brink of divorce. This new system not only mended our marriage.
+              But allowed us to give our daughter Jenny the life we never have. It takes us just 7 minutes a day.
+              First thing in the morning or last thing before bed!
+            </p>
+          </div>
+
+          <button type="button" @click="showModal = false"
+            class="pulsing mt-6 w-full rounded-lg border-4 border-blue-500 bg-[#FFFF00] px-4 py-2 font-serif font-bold text-black underline hover:bg-cyan-200">
+            Keep Watching To Discover This 7Min/Day System &gt;&gt;
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-start justify-center">
+        <div class="w-full lg:w-[910px] lg:max-w-[910px]">
+          <header class="pb-4">
+
+ <!-- Authority Line -->
+ <h2
+ class="hidden-on-play-mobile font-roboto-condensed font-bold mt-4 mb-2 text-center text-[20px] tracking-[0.1em] uppercase text-gray-800 lg:text-[20px]">
+ TOP COMPUTER SCIENTIST:
+</h2>
+
+<!-- Main Headline (keeps your original size) -->
+<h1
+class="hidden-on-play-mobile font-roboto-condensed mb-6 text-center text-4xl leading-[1.2] font-bold text-black lg:text-6xl lg:leading-[1.1]">
+"Doing This Once Daily<br />
+Makes Me <span class="text-header-red">$528/Day"</span>
+</h1>
+
+
+            <div class="flex items-start justify-center lg:mt-10">
+
+              <!-- ✅ LANDSCAPE/desktop video -->
+              <div class="landscape-only w-full">
+                <div class="relative flex h-[578px] w-[330px] items-center justify-center border-4 bg-black lg:h-[515px] lg:w-[910px]">
+                  <div class="flex items-center justify-center">
+                    <img src="/images/loading-video.gif" alt="Loading Video" class="absolute w-100 lg:w-[500px]" loading="lazy">
+
+                    <div x-data="{ fullscreen: false, hasToggledFullScreen: false }"
+                      :class="fullscreen ? 'fixed top-0 left-0 w-screen h-screen bg-black z-50 flex items-center justify-center' : 'relative w-full lg:w-[910px] lg:h-[515px] aspect-w-910 aspect-h-515 border-4 border-white shadow-lg shadow-gray-500'"
+                      class="wistia-video-container"
+                      x-on:videoplay.window="fullscreen = true; hasToggledFullScreen = true"
+                      x-on:videopause.window="fullscreen = false">
+
+                      <div class="flex h-full w-full items-center justify-center">
+                        <img x-show="!fullscreen && hasToggledFullScreen" x-cloak
+                          @click.stop="fullscreen = true; globalVideo.play();" alt="play"
+                          class="pulsing-video-button z-[1000] w-[180px] lg:w-[360px]"
+                          src="/images/click-to-play-video.png">
+                      </div>
+
+                      <div id="wistia-video" class="absolute inset-0 h-full w-full" :class="fullscreen ? 'fullscreen-video' : ''"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ✅ PORTRAIT tablet/phone video -->
+              <div class="portrait-only w-full">
+                <div class="relative w-screen mobile-video-wrapper"
+                  x-data="{ mfullscreen: false, mhasToggledFullScreen: false }"
+                  x-on:mobilevideoplay.window="mfullscreen = true; mhasToggledFullScreen = true"
+                  x-on:mobilevideopause.window="mfullscreen = false">
+                  <div id="wistia-video-mobile" class="absolute inset-0 h-full w-full"></div>
+
+                  <div class="absolute inset-0 flex h-full w-full items-center justify-center pointer-events-none">
+                    <img x-show="!mfullscreen && mhasToggledFullScreen" x-cloak
+                      @click.stop="mfullscreen = true; mobileGlobalVideo && mobileGlobalVideo.play();"
+                      alt="play"
+                      class="pulsing-video-button w-[180px] lg:w-[360px] pointer-events-auto"
+                      src="/images/click-to-play-video.png">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </header>
+        </div>
+      </div>
+
+      <div class="w-full bg-white">
+        <div class="py-4 text-center font-serif text-sm font-thin tracking-wide lg:text-base text-black">
+          <div class="flex items-start justify-center gap-2 mb-0">
+            <img src="/images/sound_on.png" class="sound-on-icon h-5 w-5" width="96" height="96" alt="sound on">
+            <div>
+              <strong class="font-serif font-semibold text-red-500">IMPORTANT:</strong>
+              Make sure your sound is on.
+            </div>
+          </div>
+          <div>Please allow the video up to 10 seconds to load.</div>
+        </div>
+      </div>
+
+      <div class="w-full bg-white">
+        <div class="flex items-start justify-center">
+          <div class="w-full lg:w-[910px] lg:max-w-[910px]">
+            <section id="offer" x-cloak x-data="{ show: false }" x-init="
+              const params = new URLSearchParams(window.location.search);
+              if (params.get('showoffer') === '1') { show = true; }
+              else { setTimeout(() => show = true, 980000); }
+            " x-show="show" class="mx-4 mt-12 rounded-xl border-2 border-black pb-6 lg:mx-0 bg-white">
+
+              <div>
+                <div class="bg-black py-4 text-center font-serif text-2xl leading-tight font-semibold tracking-wide lg:text-5xl lg:leading-relaxed" style="color: #B08D57;">
+                  <h1>Unlock Your Copy Of<br>Pegasus</h1>
+                </div>
+
+                <div class="relative h-[18px] w-[360px] overflow-hidden bg-transparent lg:h-[42px] lg:w-[908px]">
+                  <div class="absolute bottom-0 left-0 h-0 w-0 border-t-[18px] border-r-[180px] border-l-[180px] border-black border-t-black border-r-transparent border-l-transparent lg:border-t-[42px] lg:border-r-[452px] lg:border-l-[452px]"></div>
+                </div>
+              </div>
+
+              <div class="mx-5 mt-4">
+                <img src="/images/main-product.png" class="lg:h-auto lg:w-[870px]" alt="Product Image">
+              </div>
+
+              <div class="">
+                <div class="mx-6 mt-4 grid h-24 grid-cols-3 rounded-xl text-lg font-medium text-white lg:text-3xl">
+                  <div class="flex items-center justify-center gap-4 rounded-l-xl bg-[#8d5cc7] text-center lg:text-left">
+                    <img alt="special discount icon" class="absolute h-16 w-auto opacity-20 lg:relative lg:h-16 lg:w-auto lg:opacity-100" src="/images/special_discount.webp">
+                    <span class="font-roboto-condensed leading-tight">Special<br>Discount</span>
+                  </div>
+
+                  <div class="flex items-center justify-center gap-4 bg-[#5590d8] text-center lg:text-left">
+                    <img alt="instant access icon" class="absolute h-16 w-auto opacity-20 lg:relative lg:h-16 lg:w-auto lg:opacity-100" src="/images/instant_access.webp">
+                    <span class="font-roboto-condensed leading-tight">Instant<br>Access</span>
+                  </div>
+
+                  <div class="flex items-center justify-center gap-4 rounded-r-xl bg-[#249e24] text-center lg:text-left">
+                    <img alt="quick start icon" class="absolute h-16 w-auto opacity-20 lg:relative lg:h-16 lg:w-auto lg:opacity-100" src="/images/quick_start.webp">
+                    <span class="font-roboto-condensed leading-tight">Quick Start<br>Bonuses</span>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-center">
+                  <div><img class="mb-6" alt="left call out arrow" src="/images/left_arrow.png"></div>
+                  <div>
+                    <div class="text-center font-serif text-2xl font-bold">Today Just For</div>
+                    <div class="-mt-3 text-center font-serif text-[54px] font-bold text-blue-950 lg:text-[71px]">$47</div>
+                  </div>
+                  <div><img class="mb-6" alt="right call out arrow" src="/images/right_arrow.png"></div>
+                </div>
+
+                <div class="flex items-center justify-center px-2 lg:px-0">
+                  <a href="https://getpegasus.pay.clickbank.net/?cbitems=1&cbfid=60687&template=emmatimer&vtid=vidb">
+                    <img alt="order now button" src="/images/order-now-button.webp">
+                  </a>
+                </div>
+              </div>
+
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Comments Section -->
+      <section class="testimonials">
+        <h2>Real People. Real Results</h2>
+
+        <div class="testimonials-container">
+
+          <!-- THREAD 1 -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img7.jpg" alt="John Carter" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">John Carter</div>
+                  <div class="comment-text">Has anyone tried the phone trick yet? Been seeing people talk about how it's changed their lives. Starting to think it's not just hype.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>20 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>247</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img8.jpg" alt="Mike Johnson" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Mike Johnson</div>
+                  <div class="comment-text">Been doing it for about a month. Made $3,000 already and I barely spend any time on it. Really does all the work for you.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>87</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img9.jpg" alt="Sarah James" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Sarah James</div>
+                  <div class="comment-text">Averaging about $3,700/month right now. Still can't believe how easy it is to set up and forget.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>29</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THREAD 2 (AMY appears here randomly) -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img10.jpg" alt="Rich Lowry" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Rich Lowry</div>
+                  <div class="comment-text">Thought this was crazy but just made my first $1,200 using the phone trick. Only been 29 days, and I'm already seeing results. Amazing.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>16 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <!-- ✅ avatar stays left -->
+              <img src="../images/testimonials/commamy-min.png" alt="Amy Anderson" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Amy Anderson</div>
+                  <div class="comment-text">Same here — I started skeptical. The setup was way easier than I expected, first payout just came in the mail! Can't wait for what's to come</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>11 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>58</span>
+                  </div>
+                </div>
+
+                <!-- ✅ check UNDER comment -->
+                <img src="../images/testimonials/amycheck-min.png" alt="Amy Anderson check" class="proof-check" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+
+          <!-- THREAD 3 -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img11.jpg" alt="Alexandra Sanders" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Alexandra Sanders</div>
+                  <div class="comment-text">How complicated is that phone trick? I'm terrible with technology.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>16 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img12.jpg" alt="Alice Chen" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Alice Chen</div>
+                  <div class="comment-text">So simple even my grandma could use it. Made over $6,000 in just three months. It's almost too easy.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>67</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img13.jpg" alt="Rachel Porter" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Rachel Porter</div>
+                  <div class="comment-text">If you can use Facebook on your phone, you'll have no trouble with this. Takes about 20 minutes to set up, then just a few minutes a day to keep it going.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>32</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THREAD 4 (EMILY appears here randomly) -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img14.jpg" alt="Mark Thompson" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Mark Thompson</div>
+                  <div class="comment-text">Update after one month using the phone trick - just made $4,500! Paid off some debt and finally booked that family vacation we've been dreaming about.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>16 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>94</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="/images/testimonials/commemily-min.png" alt="Emily Bennet" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Emily Bennet</div>
+                  <div class="comment-text">Love this! I used my first month to catch up on bills too. It’s crazy how fast it adds up when you stay consistent.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>10 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>46</span>
+                  </div>
+                </div>
+
+                <!-- ✅ check UNDER comment -->
+                <img src="/images/testimonials/emilycheck-min.png" alt="Emily Bennet check" class="proof-check" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- THREAD 5 -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img15.jpg" alt="Steve Davis" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Steve Davis</div>
+                  <div class="comment-text">My friend started using the phone trick about six months ago. Thought it was too good to be true. But then he quit his job! Now he spends all his time with his family. Just started doing it myself and I'm already seeing some cash roll in!</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>16 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THREAD 6 (EVAN appears here randomly) -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img16.jpg" alt="Michelle Taylor" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Michelle Taylor</div>
+                  <div class="comment-text">The phone trick literally changed EVERYTHING for my family. No more working late nights. I actually get to have dinner with my kids every day now.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>16 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img17.jpg" alt="Rob Wilson" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Rob Wilson</div>
+                  <div class="comment-text">Michelle Taylor how fast did you start seeing results?</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="../lander/images/img16.jpg" alt="Michelle Taylor" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Michelle Taylor</div>
+                  <div class="comment-text">Rob Wilson I made $500 in my first week, then it just kept growing. Wish I'd started this years ago.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>14 min</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="/images/testimonials/commevan-min.png" alt="Evan Chris" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Evan Chris</div>
+                  <div class="comment-text">Rob Wilson I noticed a difference in the first week too. Biggest thing was just following the steps exactly the first time.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>9 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>39</span>
+                  </div>
+                </div>
+
+                <!-- ✅ check UNDER comment -->
+                <img src="/images/testimonials/evancheck-min.png" alt="Evan Chris check" class="proof-check" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- THREAD 7 -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../lander/images/img18.jpg" alt="Patricia Brown" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Patricia Brown</div>
+                  <div class="comment-text">To the person who created the phone trick - THANK YOU. Never thought I'd have this kind of financial freedom. Just started saving for my kids' college funds.</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>9 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THREAD 8 (TIM appears here randomly) -->
+          <div class="testimonial-thread">
+            <div class="comment">
+              <img src="../images/testimonials/commtim-min.png" alt="Tim Williams" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Tim Willams</div>
+                  <div class="comment-text">Alright, I'm gonna test this and report back to you guys in a month. I really hope this works, my daughters birthday is coming up and we really could use the extra cash... Wish me luck!</div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>1 month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment reply">
+              <img src="/images/testimonials/commtim-min.png" alt="Tim Willams" class="avatar" width="40" height="40" loading="lazy" decoding="async" />
+
+              <div class="comment-content">
+                <div class="comment-bubble">
+                  <div class="comment-name">Tim Willams</div>
+                  <div class="comment-text">HOLY SH*T GUYS! This is unbelivable. I really didn't think it would work, but looks like I was proven wrong (LOVE IT HAHA)! <br> <br> My daughter Jenny thanks you guys for giving her "The BESTEST birthday of her life".. <br> <br> and I thank you guys for changing our lives in ways I never thought possible! Try it out if you haven't already! </div>
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action">Like</span>
+                  <span class="comment-action">Reply</span>
+                  <span>12 min</span>
+                  <div class="comment-likes">
+                    <div class="like-icon"><svg viewBox="0 0 24 24"><path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/></svg></div>
+                    <span>22</span>
+                  </div>
+                </div>
+
+                <!-- ✅ check UNDER comment -->
+                <img src="/images/testimonials/timcheck-min.png" alt="Tim Willams check" class="proof-check" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <script>
+        let globalVideo;
+        let mobileGlobalVideo;
+
+        function loadWistiaVideo() {
+          const videoContainer = document.getElementById("wistia-video");
+          const mobileVideoContainer = document.getElementById("wistia-video-mobile");
+          videoContainer.innerHTML = "";
+          mobileVideoContainer.innerHTML = "";
+
+          const videoId = "jxe0c467oc";
+          const mobileVideoId = "zb7dfnov74";
+
+          const wistiaDiv = document.createElement("div");
+          const mobileWistiaDiv = document.createElement("div");
+          wistiaDiv.className = `wistia_embed wistia_async_${videoId}`;
+          mobileWistiaDiv.className = `wistia_embed wistia_async_${mobileVideoId}`;
+          videoContainer.appendChild(wistiaDiv);
+          mobileVideoContainer.appendChild(mobileWistiaDiv);
+
+          if (!window._wistiaInitialized) {
+            const wistiaScript = document.createElement("script");
+            wistiaScript.src = "https://fast.wistia.com/assets/external/E-v1.js";
+            wistiaScript.async = true;
+            document.head.appendChild(wistiaScript);
+
+            const mobileWistiaScript = document.createElement("script");
+            mobileWistiaScript.src = "https://fast.wistia.com/assets/external/E-v1.js";
+            mobileWistiaScript.async = true;
+            document.head.appendChild(mobileWistiaScript);
+
+            window._wistiaInitialized = true;
+          }
+
+          window._wq = window._wq || [];
+          _wq.push({
+            id: videoId,
+            options: { videoFoam: true },
+            onReady: function (video) {
+              globalVideo = video;
+              video.bind("play", function () { window.dispatchEvent(new Event("videoplay")); });
+              video.bind("pause", function () { window.dispatchEvent(new Event("videopause")); });
+            },
+          });
+
+          _wq.push({
+            id: mobileVideoId,
+            options: { videoFoam: true },
+            onReady: function (video) {
+              mobileGlobalVideo = video;
+              let hiddenOnPlayElements = document.getElementsByClassName("hidden-on-play-mobile");
+
+              video.bind("play", function () {
+                for (let hd of hiddenOnPlayElements) hd.classList.add("hidden");
+                window.dispatchEvent(new Event("mobilevideoplay"));
+              });
+
+              video.bind("pause", function () {
+                for (let hd of hiddenOnPlayElements) hd.classList.remove("hidden");
+                window.dispatchEvent(new Event("mobilevideopause"));
+              });
+            },
+          });
+        }
+
+        loadWistiaVideo();
+      </script>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,568 @@
+/* Downsell Page Styles */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.ovrfl {
+    overflow: hidden;
+}
+
+.flt {
+    float: left;
+    width: 100%;
+}
+
+.containerx {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.bdinpad {
+    padding: 0 40px;
+}
+
+.dsplay {
+    display: block;
+}
+
+.clearall {
+    clear: both;
+}
+
+/* Header Section - Black Background with Yellow/White Text */
+.down5-sec1 {
+    background: #000;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.down5s1-hding1 {
+    font-size: 50px;
+    color: #FFD700;
+    margin: 0;
+    font-weight: 700;
+}
+
+.down5s1-hding1 span {
+    color: #FFFFFF;
+    display: inline;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.down5s1-hding2 {
+    font-size: 60px;
+    color: #FFD700;
+    margin: 0;
+    font-weight: 700;
+}
+
+.down5s1-hding2 span {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+/* Content Section */
+.down5-sec2 {
+    padding: 50px 0;
+    background: #f5f5f5;
+}
+
+@media (max-width: 767px) {
+    .down5-sec2 {
+        padding: 20px 0 !important;
+    }
+}
+
+.down5s2bx {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+    .down5s2bx {
+        margin-bottom: 20px !important;
+    }
+}
+
+.down5s2bx-lft {
+    float: left;
+    width: 35%;
+    text-align: center;
+}
+
+.down5s2bx-rgt {
+    float: left;
+    width: 65%;
+    padding-left: 40px;
+}
+
+.down5s2prd {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .down5s2prd {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+.down5s2bx-txt1 {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@media (max-width: 767px) {
+    .down5s2bx-txt1 {
+        margin-bottom: 15px !important;
+        margin-top: 0 !important;
+        font-size: 20px;
+    }
+}
+
+.txlncntr {
+    text-align: left;
+}
+
+.blue2 {
+    color: #2563eb;
+}
+
+.brown {
+    color: #b08d57;
+}
+
+/* Regular Price with Diagonal Strikethrough */
+.reg-prc {
+    font-size: 20px;
+    color: #666;
+    margin: 20px 0;
+}
+
+@media (max-width: 767px) {
+    .reg-prc {
+        margin: 12px 0 8px !important;
+    }
+}
+
+.down5reg-prc {
+    margin: 15px 0;
+}
+
+.strikeout {
+    position: relative;
+    display: inline-block;
+    color: #999;
+}
+
+.strikeout::after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    top: 50%;
+    border-bottom: 3px solid #E53E3E;
+    transform: translateY(-50%) rotate(-8deg);
+}
+
+.down5s2-prc {
+    font-size: 58px;
+    font-weight: 700;
+    color: #2E5AAE;
+    margin: 25px 0;
+}
+
+@media (max-width: 767px) {
+    .down5s2-prc {
+        margin: 12px 0 !important;
+    }
+}
+
+.down5s2-prc span {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.down5s2bx-txt {
+    font-weight: 600;
+}
+
+/* Button Section */
+.down5btm {
+    margin-top: 40px;
+    text-align: center;
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.down5s2txt {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d32f2f;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    background: #fce4e4;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.down5s2txt2 {
+    margin-top: 0;
+    width: 100%;
+}
+
+/* CTA Button - Pegasus Gold Gradient */
+.down5s2btn-wrapper {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.down5s2btn {
+    background: linear-gradient(to bottom, #d4b276 0%, #b08d57 100%);
+    color: white;
+    padding: 25px 60px;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+.down5s2btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, #dcc290 0%, #c49a6b 100%);
+}
+
+/* No Thanks Link */
+.down5nothank {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    color: #666;
+    text-decoration: underline;
+    line-height: 1.6;
+    max-width: 800px;
+    text-align: center;
+}
+
+.down5nothank img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Testimonial Sections */
+.bdhding1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin: 50px 0 40px;
+    color: #333;
+}
+
+.mar1 {
+    margin-bottom: 20px;
+}
+
+.s4tbx {
+    background: #fff;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    border: 1px solid #e0e0e0;
+}
+
+/* Quote Marks */
+.start-quote {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: auto;
+    opacity: 0.4;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(98%) saturate(2678%) hue-rotate(154deg) brightness(91%) contrast(101%);
+}
+
+.end-quote {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    opacity: 0.4;
+    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(7471%) hue-rotate(359deg) brightness(102%) contrast(111%);
+}
+
+/* Testimonial Image on Right */
+.s4timg {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    float: right;
+    margin: 0 0 20px 30px;
+    object-fit: cover;
+}
+
+.bdfont3 {
+    font-size: 24px;
+    text-align: left;
+    margin: 20px 0;
+    color: #333;
+    clear: none;
+}
+
+.bdfont {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    text-align: left;
+    clear: none;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background: #fff;
+    padding: 50px 0;
+    border-top: 1px solid #ddd;
+}
+
+.ftrlist {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.ftrlist li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.ftrlist a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.ftrlist a:hover {
+    color: #b08d57;
+    text-decoration: underline;
+}
+
+.ftrtxt {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin: 20px 0;
+}
+
+/* Responsive */
+.show-767 {
+    display: none;
+}
+
+.show-479 {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .show-767 {
+        display: inline;
+    }
+
+    .down5s2bx-lft {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        float: none;
+    }
+
+    .down5s2bx-rgt {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        float: none;
+        text-align: center;
+    }
+    
+    .down5s2bx-txt1 {
+        text-align: center;
+    }
+
+    .down5s2prd.show-767 {
+        display: block;
+        margin: 12px 0;
+    }
+
+    .down5s2prd:not(.show-767) {
+        display: none !important;
+    }
+
+    .down5s1-hding1 {
+        font-size: 28px;
+    }
+
+    .down5s1-hding1 span {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .down5s1-hding2 {
+        font-size: 42px;
+        margin-top: 5px;
+    }
+
+    .down5s1-hding2 span {
+        font-size: 24px;
+    }
+
+    .down5s2-prc {
+        font-size: 42px;
+    }
+
+    .bdinpad {
+        padding: 0 20px;
+    }
+
+    .down5s2bx {
+        padding: 12px 20px 20px;
+    }
+
+    .down5s2btn {
+        font-size: 24px;
+        padding: 20px 40px;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .s4timg {
+        float: none;
+        margin: 0 auto 20px;
+        display: block;
+    }
+
+    .bdfont3,
+    .bdfont {
+        text-align: left;
+    }
+
+    .s4tbx {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 479px) {
+    .show-479 {
+        display: inline;
+    }
+
+    .bdinpad {
+        padding: 0 15px;
+    }
+
+    .down5s1-hding1 {
+        font-size: 24px;
+    }
+
+    .down5s1-hding2 {
+        font-size: 32px;
+    }
+    
+    .down5-sec2 {
+        padding: 15px 0;
+    }
+    
+    .down5s2bx {
+        padding: 8px 15px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .down5s2bx-lft {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .down5s2bx-rgt {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .down5s2prd.show-767 {
+        margin: 8px 0;
+    }
+    
+    .reg-prc {
+        margin: 10px 0 6px;
+    }
+    
+    .down5s2-prc {
+        margin: 10px 0;
+    }
+
+    .down5s2btn {
+        font-size: 18px;
+        padding: 16px 25px;
+        width: 100%;
+        max-width: 350px;
+        word-wrap: break-word;
+    }
+
+    .down5s2bx-rgt {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    
+    .down5s2bx-txt1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .bdfont3 {
+        font-size: 20px;
+    }
+
+    .bdfont {
+        font-size: 16px;
+    }
+    
+    .down5s2bx-txt {
+        margin-bottom: 10px;
+    }
+}
+
