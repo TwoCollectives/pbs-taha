@@ -90,24 +90,27 @@
     showModal: false,
 
     initOffer() {
+      const params = new URLSearchParams(window.location.search);
+      const pg = params.get('pg');
+      const showoffer = params.get('showoffer');
+
       // Only allow offer if pg=vdrd
-      if (window.pg !== 'vdrd') {
+      if (pg !== 'vdrd') {
         this.show = false;
         return;
       }
 
-      // Match the other file's timer behavior:
-      // - show instantly if ?showoffer=1
-      // - otherwise show after 9 minutes
+      // Pegasus behavior
       if (showoffer === '1') {
         this.show = true;
       } else {
-        setTimeout(() => this.show = true, 540000); // 9 minutes
+        setTimeout(() => (this.show = true), 540000); // 9 minutes
       }
     }
   }"
   x-init="initOffer()"
 >
+
 
 
   <!-- Modal -->
