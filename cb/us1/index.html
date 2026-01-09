@@ -96,16 +96,19 @@
         return;
       }
 
-      // Pegasus behavior:
-      if (window.showoffer === '1') {
+      // Match the other file's timer behavior:
+      // - show instantly if ?showoffer=1
+      // - otherwise show after 9 minutes
+      if (showoffer === '1') {
         this.show = true;
       } else {
-        setTimeout(() => this.show = true, 10); // 9 minutes
+        setTimeout(() => this.show = true, 540000); // 9 minutes
       }
     }
   }"
   x-init="initOffer()"
 >
+
 
   <!-- Modal -->
   <div x-data="{ showModal: false }" x-init="
