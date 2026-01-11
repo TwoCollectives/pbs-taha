@@ -83,44 +83,26 @@
   </style>
 </head>
 
-<body
-  class="relative font-sans h-100 m-0 p-0"
-  x-data="{
-    show: false,
-    showModal: false,
-
-    initOffer() {
-      const params = new URLSearchParams(window.location.search);
-      const pg = params.get('pg');
-      const showoffer = params.get('showoffer');
-
-      // Only allow offer if pg=vdrd
-      if (pg !== 'vdrd') {
-        this.show = false;
-        return;
-      }
-
-      // Pegasus behavior
-      if (showoffer === '1') {
-        this.show = true;
-      } else {
-        setTimeout(() => (this.show = true), 5000); // 9 minutes
-      }
+<body class="relative font-sans h-100 m-0 p-0" x-data="{
+  show: false,
+  initOffer() {
+    // replicate your x-init logic here
+    if (showoffer === '1') {
+      this.show = true;
+    } else {
+      setTimeout(() => this.show = true, 5000);
     }
-  }"
-  x-init="initOffer()"
->
-
-
-
-  <!-- Modal -->
-  <div x-data="{ showModal: false }" x-init="
-        document.addEventListener('mouseleave', (event) => {
-            if (event.clientY <= 0) {
-                showModal = false; // set to true if we need the modal
-            }
-        });
-    ">
+  },
+  showModal: false,
+}" x-init="initOffer()">
+<!-- Modal -->
+<div x-data="{ showModal: false }" x-init="
+      document.addEventListener('mouseleave', (event) => {
+          if (event.clientY <= 0) {
+              showModal = false; // set to true if we need the modal
+          }
+      });
+  ">
     <!-- Backdrop -->
     <div x-show="showModal" x-cloak
       class="fixed inset-0 bg-black bg-opacity-80 z-[2000] flex items-center justify-center">
