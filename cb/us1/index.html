@@ -5,24 +5,37 @@
   <link rel="canonical" href="/cb/us1">
 
   <head>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '857412070092730');
-    fbq("track", "PageView");
-    fbq("track", "Purchase", { currency: "USD", value: 47.0 });    
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=857412070092730&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+   <!-- Meta Pixel Code (Multiple Pixels) -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  
+  /* === INIT ALL PIXELS === */
+  fbq('init', '857412070092730');   // Your pixel
+  fbq('init', '1693628627996296');  // Ryan
+  fbq('init', '1857604301853683');  // Greg 1
+  fbq('init', '1193492015440563');  // Greg 2
+  fbq('init', '1156832636435723');  // Greg 3
+  fbq('init', '2272426799864518');  // Paul
+  
+  /* === TRACK EVENTS (sent to ALL pixels above) === */
+  fbq('track', 'PageView');
+  fbq('track', 'Purchase', { currency: 'USD', value: 47.0 });
+  
+  </script>
+  
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=857412070092730&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  
   
 
   <script>
