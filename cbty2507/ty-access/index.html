@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="canonical" href="/cbty2507/ty-access">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pegasus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+
+  <!-- Meta Pixel Code -->
+  <script>
+  (function() {
+    // Check if cbaffi parameter is "BIGBOYKAL" and fire specific pixel (case insensitive)
+    const urlParams = new URLSearchParams(window.location.search);
+    const cbaffi = urlParams.get('cbaffi');
+    
+    if (cbaffi && cbaffi.toUpperCase() === 'BIGBOYKAL') {
+      // Prevent multiple initializations
+      if (window.fbq || window.fbPixelBigBoyKalLoaded) return;
+      window.fbPixelBigBoyKalLoaded = true;
+      
+      // Initialize Facebook Pixel
+      window.fbq = function() {
+        window.fbq.callMethod ? window.fbq.callMethod.apply(window.fbq, arguments) : window.fbq.queue.push(arguments);
+      };
+      window.fbq.push = window.fbq;
+      window.fbq.loaded = true;
+      window.fbq.version = '2.0';
+      window.fbq.queue = [];
+      
+      // Load the script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(script);
+      
+      // Initialize and track
+      fbq('init', '1366601541119742');
+      fbq('track', 'PageView');
+      
+      // Add noscript tracking image
+      const noscriptImg = document.createElement('img');
+      noscriptImg.height = 1;
+      noscriptImg.width = 1;
+      noscriptImg.style.display = 'none';
+      noscriptImg.src = 'https://www.facebook.com/tr?id=1366601541119742&ev=PageView&noscript=1';
+      document.body.appendChild(noscriptImg);
+    }
+  })();
+  </script>
+  <!-- End Meta Pixel Code -->
+  
+  <!-- Thank You Dashboard Styles -->
+  <link rel="stylesheet" href="/jvty2507/css/ty-dashboard.css">
+  
+  
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/apple-touch-icon.png">
+</head>
+
+<body class="cash-phone-body">
+  <header class="cash-phone-header">Pegasus (New &amp; Improved!)</header>
+
+  <div class="hero-section">
+    <h1 class="hero-title">Pegasus</h1>
+    <p class="hero-description">
+      Congratulations on unlocking your copy! Select any module below to get started.
+    </p>
+  </div>
+
+  <div class="module-tabs">
+    <ul class="tab-list">
+      <li class="tab-item">
+        <button type="button" class="tab-button active" onclick="showTab(0)">Welcome</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(1)">Module 1</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(2)">Module 2</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(3)">Module 3</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(4)">Module 4</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(5)">Module 5</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(6)">Module 6</button>
+      </li>
+      <li class="tab-item">
+        <button type="button" class="tab-button" onclick="showTab(7)">Module 7</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="module-card" id="welcome-tab">
+        <div style="text-align: center; padding: 20px;">
+          <h2 style="color: #b08d57; margin-bottom: 20px;">Welcome! Watch this first</h2>
+          <p style="font-size: 1.2em; margin-bottom: 20px;">
+            Please watch the short welcome video below to know the next steps
+          </p>
+          <iframe
+            src="https://player.vimeo.com/video/1098937723?h=82722f5663&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            class="w-full h-[50vh] border-none rounded-2xl"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            title="Pegasus Welcome Video"></iframe>
+          <div class="video-navigation">
+            <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+              Previous</button>
+            <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card hidden" id="module1">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/1107193245?h=1f69883b80&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 1 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+
+      </div>
+
+
+      <!-- ================= MODULE 2 ================= -->
+      <!-- ✅ Module 2 -->
+      <div class="module-card hidden" id="module2">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/1107194514?h=0510077bd1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 2 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+      </div>
+
+
+      <div class="module-card hidden" id="module3">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/1107195665?h=6f65b8aaf3&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 3 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+      </div>
+
+      <div class="module-card hidden" id="module4">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/1107198596?h=ad580c94bc&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 4 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+
+        <!-- Module 4 Document Link -->
+        <div class="document-link">
+          <p>
+            <strong>
+              <a href="https://docs.google.com/document/d/1yOQMs-VvLNim7YYii3_7todwsJw2YXqDHAjMfMZMt_k/copy?usp=sharing"
+                class="text-white" target="_blank">
+                Here is the link to the google document as shown in the video
+              </a>
+            </strong>
+            .
+          </p>
+        </div>
+      </div>
+
+      <div class="module-card hidden" id="module5">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/1097449488?h=b503c4a6b0&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 5 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+
+        <!-- Module 5 Spreadsheet Link -->
+        <div class="document-link">
+          <p>
+            <strong>
+              <a href="https://docs.google.com/spreadsheets/d/196AD31DursNAm07jBqKL-R_DyyCuj0TxU-B47x7fx7M/copy?usp=sharing"
+                class="text-white" target="_blank">
+                Here is the link to the google spreadsheet as shown in the video
+              </a>
+            </strong>
+            .
+          </p>
+        </div>
+      </div>
+
+      <div class="module-card hidden" id="module6">
+        <iframe src="about:blank"
+          data-vimeo-src="https://player.vimeo.com/video/838898187?h=741bf81f74&badge=0&autopause=0&player_id=0&app_id=58479"
+          class="border-none" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          title="Module 6 Video"></iframe>
+        <div class="video-navigation">
+          <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+            Previous</button>
+          <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+        </div>
+      </div>
+
+      <div class="module-card hidden" id="module7"
+        style="background:linear-gradient(135deg,#b08d57,#000); color:#fff; text-align:center; padding:50px 20px 40px; border-radius:16px; position:relative; overflow:hidden;">
+
+        <!-- Decorative overlay -->
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; 
+               background:radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 70%);
+               pointer-events:none;"></div>
+
+        <div class="module7-inner-container"
+          style="max-width:750px; margin:0 auto; position:relative; z-index:2;">
+          <h2
+            style="font-size:2.4em; font-weight:700; margin-bottom:20px; letter-spacing:1px; text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+            🚀 FREE BONUS TRAINING
+          </h2>
+
+          <!-- ✅ Training Thumbnail (Full Container Width, Thin Border, Shadow) -->
+          <a href="https://www.vlbsdk2rhbtrk.com/L9B2Q2/HS752J/?sub1=MembersArea" target="_blank"
+            style="display:block; margin:0 0 25px 0; width:100%;">
+            <img src="/images/training-thumb.png" alt="Training Thumbnail" style="width:100%; height:auto; display:block; margin:0;
+              border:3px solid #fff; border-radius:12px;
+              box-shadow:0 6px 14px rgba(0,0,0,0.35);
+              box-sizing:border-box;">
+          </a>
+
+          <!-- Highlighted Rectangle -->
+          <div style="display:block; background:#fff; padding:10px 18px; border-radius:12px; margin-bottom:25px; 
+            box-shadow:0 3px 8px rgba(0,0,0,0.25); width:100%; box-sizing:border-box;">
+            <h3 class="module7-subheadline"
+              style="margin:0; color:#000; font-weight:700; letter-spacing:0.5px; text-align:center;">
+              Multiply Your Earnings To $1,000–$3,000 A Day
+            </h3>
+          </div>
+
+
+          <p class="module7-text" style="font-size:1em; line-height:1.6; margin-bottom:22px;">
+            Pegasus is powerful, but if you want to scale to <strong>life-changing income</strong>,
+            this bonus training reveals exactly how to play in the big leagues.
+          </p>
+
+          <!-- Free Badge -->
+          <!-- 
+          ========================================
+          ORIGINAL VERSION (BACKUP - CAN ROLLBACK)
+          ========================================
+          To rollback to original design, delete the new version below and uncomment this:
+          
+          <p class="module7-text" style="font-size:1em; line-height:1.6; margin-bottom:35px;">
+            And the best part?
+            <span
+              style="display:inline-block; margin:0 6px; background:#fff; color:#000; font-weight:bold; padding:5px 14px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.3);">
+              100% FREE
+            </span>
+            as a Pegasus member.
+          </p>
+          ========================================
+          -->
+          
+          <!-- NEW ENHANCED VERSION -->
+          <p class="module7-text" style="font-size:1.05em; line-height:1.6; margin-bottom:15px;">
+            And the best part? As a Pegasus member, you get access to this training...
+          </p>
+          
+          <div class="free-badge-wrapper" style="margin:25px 0 35px; text-align:center;">
+            <div class="free-badge-container" style="display:inline-block; background:linear-gradient(135deg, #fff, #f5f5f5); 
+                        padding:11px 28px; border-radius:9px; 
+                        box-shadow:0 5px 12px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,215,0,0.3);
+                        transform:scale(1); transition:transform 0.3s;">
+              <span style="font-size:1.25em; font-weight:900; color:#000; letter-spacing:1.1px; 
+                           text-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                🎁 100% FREE
+              </span>
+            </div>
+          </div>
+
+          <!-- Unlock button -->
+          <a href="https://www.vlbsdk2rhbtrk.com/L9B2Q2/HS752J/?sub1=MembersArea" target="_blank" style="display:inline-block; background:#ffd700; color:#000; font-weight:700; 
+               padding:18px 40px; border-radius:50px; text-decoration:none; font-size:1.3em;
+               box-shadow:0 4px 14px rgba(0,0,0,0.45); transition:all 0.3s;">
+            🔓 Unlock The Training
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Navigation buttons BELOW container -->
+      <div class="video-navigation" id="module7-extra-nav" style="margin-top:25px; display:none;">
+        <button type="button" class="nav-btn prev-btn" onclick="goToPreviousTab()">←
+          Previous</button>
+        <button type="button" class="nav-btn next-btn" onclick="goToNextTab()">Next →</button>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- ✅ Bonus Section for Module 2 (Premium Gradient, Centered Button) -->
+  <div class="bonus-section" id="bonus2" style="display:none; width:100%; margin:0;">
+
+    <div style="width:100%; background:linear-gradient(135deg,#b08d57,#000);
+              color:#fff; padding:60px 5%; box-shadow:0 6px 16px rgba(0,0,0,0.5); 
+              display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:30px;">
+
+      <!-- Image (round, premium look) -->
+      <div style="flex:0 0 220px; display:flex; justify-content:center;">
+        <img src="/images/pegasus-training.webp" alt="Pegasus Training" style="width:220px; height:220px; object-fit:cover; border-radius:50%; 
+                  box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      </div>
+
+      <!-- Text -->
+      <div style="flex:1; min-width:280px; text-align:left; max-width:800px;">
+        <h2
+          style="font-size:1em; font-weight:700; margin-bottom:20px; line-height:1.3; text-shadow:0 2px 6px rgba(0,0,0,0.5);">
+          ⭐ Want To Multiply Your Earnings To $1,000–$3,000 A Day?
+        </h2>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:15px;">
+          Pegasus helped me earn hundreds of dollars a day.
+        </p>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:15px;">
+          But it was Phillip’s training that helped me scale to $3,000 days, travel the world in
+          style,
+          and finally support my family and kids the way they deserve.
+        </p>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:15px;">
+          <strong>Now listen—don’t just half-watch this while scrolling your phone.<br>
+            Grab a pen. Take notes. Pay attention.</strong>
+        </p>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:25px;">
+          This is your chance to take what you’re learning here and go <strong>10x further</strong>.
+          But only if you’re willing to put in the effort. No shortcuts. No excuses.
+        </p>
+      </div>
+
+      <!-- Unlock Button (Centered Under Text) -->
+      <div style="width:100%; text-align:center; margin-top:20px;">
+        <a href="https://www.vlbsdk2rhbtrk.com/L9B2Q2/HS752J/?sub1=MembersArea" target="_blank" style="display:inline-block; background:#ffd700; color:#000; font-weight:700; 
+                padding:18px 40px; border-radius:50px; text-decoration:none; font-size:1.3em;
+                box-shadow:0 4px 14px rgba(0,0,0,0.45); transition:all 0.3s;">
+          🔓 Unlock The Training
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Mobile Friendly Styles -->
+  
+
+  <!-- ✅ Bonus Section for Module 4 (Premium Gradient, Centered Button) -->
+  <div class="bonus-section" id="bonus4" style="display:none; width:100%; margin:0;">
+
+    <div style="width:100%; background:linear-gradient(135deg,#b08d57,#000);
+              color:#fff; padding:60px 5%; box-shadow:0 6px 16px rgba(0,0,0,0.5); 
+              display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:30px;">
+
+      <!-- Image -->
+      <div style="flex:0 0 220px; display:flex; justify-content:center;">
+        <img src="/images/pegasus-training.webp" alt="Pegasus Bonus Training" style="width:220px; height:220px; object-fit:cover; border-radius:50%; 
+                  box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      </div>
+
+      <!-- Text -->
+      <div style="flex:1; min-width:280px; text-align:left; max-width:800px;">
+        <h2
+          style="font-size:2em; font-weight:700; margin-bottom:20px; line-height:1.3; text-shadow:0 2px 6px rgba(0,0,0,0.5);">
+          ⭐ Want To Multiply Your Earnings To $1,000–$3,000 A Day?
+        </h2>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:15px;">
+          Pegasus is powerful, but if you want to scale to <strong>life-changing income</strong>,
+          you need to watch this bonus training.
+        </p>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:25px;">
+          This is where you’ll learn the strategies that can help you step up from steady wins
+          to truly <strong>elite daily income</strong>.
+        </p>
+        <p style="font-size:1.15em; line-height:1.7; margin-bottom:30px;">
+          And guess what? This training is <strong>100% FREE</strong> as a Pegasus member —
+          but only if you take action now.
+        </p>
+      </div>
+
+      <!-- Unlock Button -->
+      <div style="width:100%; text-align:center; margin-top:20px;">
+        <a href="https://www.vlbsdk2rhbtrk.com/L9B2Q2/HS752J/?sub1=MembersArea" target="_blank" style="display:inline-block; background:#ffd700; color:#000; font-weight:700; 
+                padding:18px 40px; border-radius:50px; text-decoration:none; font-size:1.3em;
+                box-shadow:0 4px 14px rgba(0,0,0,0.45); transition:all 0.3s;">
+          🔓 Unlock The Training
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="footer-container"></div>
+  <script src="/cbty2507/ty-access/footer-loader.js"></script>
+
+  <!-- Lazy Video Loader -->
+  <script src="/cbty2507/ty-access/lazy-video-loader.js"></script>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68d15f3045f7a219268ede8e/1j5otnm48';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+  <!--End of Tawk.to Script-->
+</body>
+
+</html>
