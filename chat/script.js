@@ -138,7 +138,7 @@ function renderOptions(options, callback) {
 
 function renderCTA() {
   return `<div class="cta-wrapper">
-    <a href="https://getpegtoday.com/cb/discovery?pg=vdrd&affiliate=thetopaff&tid={clickid}" class="cta-btn">Click Here</a>
+    <a href="https://go.dailygrowthpath.com/click" class="cta-btn">Click Here</a>
   </div>`;
 }
 
@@ -164,7 +164,7 @@ function addMessage(html) {
 }
 
 function clearOptions() {
-  document.querySelectorAll(".option-btn").forEach(btn => btn.remove());
+  document.querySelectorAll(".options-wrapper").forEach(wrapper => wrapper.closest(".message-wrapper").remove());
 }
 
 function askQuestion(index) {
