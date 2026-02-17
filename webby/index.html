@@ -21,15 +21,38 @@
   body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:#ffffff;              /* ✅ white background */
+    background:#ffffff;
+    padding:0; /* top bar uses full width */
+    color:#000000;
+  }
+
+  /* 🔴 FLASHING URGENCY BAR */
+  .urgency-bar{
+    width:100%;
+    background:#c40000;
+    color:#fff;
+    text-align:center;
+    padding:14px 10px;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:0.6px;
+    animation: flashYellow 1.2s infinite;
+  }
+
+  @keyframes flashYellow{
+    0%   { background:#c40000; color:#fff; }
+    50%  { background:#ffd400; color:#000; }
+    100% { background:#c40000; color:#fff; }
+  }
+
+  .page-wrap{
     padding:40px 14px;
-    color:#000000;                   /* ✅ black text */
   }
 
   .card{
     max-width:900px;
     margin:0 auto;
-    background:#ffffff;              /* ✅ white */
+    background:#ffffff;
     border-radius:18px;
     padding:28px;
     box-shadow:0 4px 24px rgba(0,0,0,0.06);
@@ -40,14 +63,7 @@
     font-size:26px;
     font-weight:900;
     margin-bottom:6px;
-    color:#000;                      /* ✅ black */
-  }
-
-  .sub{
-    text-align:center;
-    font-size:14px;
-    margin-bottom:20px;
-    color:#000;                      /* ✅ black */
+    color:#000;
   }
 
   .hero{
@@ -80,7 +96,7 @@
   #videoModalInner{
     max-width:960px;
     width:100%;
-    background:#ffffff;              /* ✅ white */
+    background:#ffffff;
     border-radius:18px;
     overflow:hidden;
     margin:20px 0;
@@ -110,9 +126,9 @@
   }
 
   .content{
-    background:#ffffff;              /* ✅ white */
+    background:#ffffff;
     padding:26px;
-    color:#000000;                   /* ✅ black */
+    color:#000000;
   }
 
   .content h2{
@@ -127,7 +143,7 @@
     font-size:15px;
     line-height:1.65;
     margin-bottom:14px;
-    color:#000;                      /* ✅ black */
+    color:#000;
   }
 
   .cta{
@@ -160,12 +176,18 @@
 
 <body>
 
-<div class="card">
-  <h1>IMPORTANT: Watch This Short Video Now</h1>
-  <div class="sub">$1k–$5k / Day Method</div>
+<!-- 🔴 FLASHING BAR -->
+<div class="urgency-bar">
+  ⏰ ONLY AVAILABLE FOR THE NEXT 24 HOURS
+</div>
 
-  <div class="hero" onclick="openVideoModal()">
-    <img src="/images/watchthis2.png" alt="Watch Video">
+<div class="page-wrap">
+  <div class="card">
+    <h1>IMPORTANT: Watch This Short Video Now</h1>
+
+    <div class="hero" onclick="openVideoModal()">
+      <img src="/images/watchthis2.png" alt="Watch Video">
+    </div>
   </div>
 </div>
 
