@@ -26,22 +26,22 @@
     color:#000000;
   }
 
-  /* 🔴 RED BAR + 🟡 YELLOW FADE FLASH */
+  /* 🔴 RED BAR + 🟡 TEXT FADES IN / OUT */
   .urgency-bar{
     width:100%;
-    background:#c40000;
+    background:#c40000;      /* stays red */
     text-align:center;
     padding:14px 10px;
     font-size:14px;
     font-weight:900;
     letter-spacing:0.6px;
-    color:#ffd400;                 /* yellow only */
-    animation: fadeFlash 1.4s infinite;
+    color:#ffd400;           /* stays yellow */
+    animation: textFade 1.4s infinite;
   }
 
-  @keyframes fadeFlash{
+  @keyframes textFade{
     0%   { opacity:1; }
-    50%  { opacity:0.25; }
+    50%  { opacity:0; }
     100% { opacity:1; }
   }
 
@@ -213,29 +213,6 @@
         without grinding away at a 9-to-5 job or stressing over side hustles.
       </p>
 
-      <p>
-        This isn’t a fantasy. It’s a <strong>real, proven system</strong> everyday people
-        are using to generate consistent income on autopilot.
-      </p>
-
-      <p>
-        No experience. No tech skills.<br>
-        Just a simple, step-by-step process.
-      </p>
-
-      <p>
-        <strong>It runs 24/7 — even while you sleep.</strong>
-      </p>
-
-      <p>
-        🔥 <strong>Ready to break free from financial stress?</strong> 🔥
-      </p>
-
-      <p>
-        Click below to discover how you could wake up to
-        <strong>$1,000–$5,000 per day.</strong>
-      </p>
-
       <a class="cta"
          href="https://jvz3.com/c/3218449/415009?tid=welcome1bridge"
          target="_blank"
@@ -256,11 +233,11 @@
   tomorrow.setDate(now.getDate() + 1);
 
   const options = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit'
+    weekday:'long',
+    month:'long',
+    day:'numeric',
+    hour:'numeric',
+    minute:'2-digit'
   };
 
   bar.innerHTML = `⏰ Available until: <strong>${tomorrow.toLocaleString(undefined, options)}</strong>`;
