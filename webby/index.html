@@ -26,22 +26,23 @@
     color:#000000;
   }
 
-  /* 🔴 RED BAR + 🟡 FLASHING TEXT */
+  /* 🔴 RED BAR + 🟡 YELLOW FADE FLASH */
   .urgency-bar{
     width:100%;
-    background:#c40000;          /* solid red */
+    background:#c40000;
     text-align:center;
     padding:14px 10px;
     font-size:14px;
     font-weight:900;
     letter-spacing:0.6px;
-    animation: flashText 1.2s infinite;
+    color:#ffd400;                 /* yellow only */
+    animation: fadeFlash 1.4s infinite;
   }
 
-  @keyframes flashText{
-    0%   { color:#ffd400; }      /* yellow */
-    50%  { color:#ffffff; }      /* white */
-    100% { color:#ffd400; }      /* yellow */
+  @keyframes fadeFlash{
+    0%   { opacity:1; }
+    50%  { opacity:0.25; }
+    100% { opacity:1; }
   }
 
   .page-wrap{
@@ -176,8 +177,8 @@
 <body>
 
 <!-- 🔴 URGENCY BAR -->
-<div class="urgency-bar">
-  ⏰ ONLY AVAILABLE FOR THE NEXT 24 HOURS
+<div class="urgency-bar" id="urgencyBar">
+  ⏰ Available until: loading…
 </div>
 
 <div class="page-wrap">
@@ -245,6 +246,26 @@
 
   </div>
 </div>
+
+<script>
+/* ⏰ Set "Available until" = tomorrow, same local time */
+(function(){
+  const bar = document.getElementById("urgencyBar");
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+
+  const options = {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  };
+
+  bar.innerHTML = `⏰ Available until: <strong>${tomorrow.toLocaleString(undefined, options)}</strong>`;
+})();
+</script>
 
 <script>
 function openVideoModal(){
