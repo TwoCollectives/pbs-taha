@@ -13,377 +13,231 @@
   gtag('config', 'G-TCMBEP4S50');
 </script>
 
-<!-- PURCHASE TRACKING (GA4 E-commerce Compliant) -->
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    const vtid = params.get("vtid") || "unknown";
-    const amount = parseFloat(params.get("amount") || "0");
-
-    // Handle all ClickBank formats: item=1|2|3 OR item=1 OR item=1&item=2&item=3
-    let items = [];
-    if (params.getAll("item").length > 1) {
-      items = params.getAll("item");
-    } else if (params.get("item")) {
-      items = params.get("item").split("|");
-    } else if (params.get("cbitems")) {
-      items = [params.get("cbitems")];
-    }
-
-    const orderID = (params.get("cbreceipt") || "unknown").split("|")[0];
-
-    const productMap = {
-      "1": { name: "Pegasus", price: 47 },
-      "2": { name: "The Code", price: 97 },
-      "3": { name: "The Code ($30 OFF)", price: 67 },
-      "4": { name: "The Vault", price: 67 },
-      "5": { name: "The Vault ($40 OFF)", price: 27 },
-      "6": { name: "Pegasus X-Files", price: 29 },
-      "7": { name: "Pegasus X-Files ($10 OFF)", price: 19 }
-    };
-
-    const ga4Items = items.map(pid => {
-      const p = productMap[pid];
-      if (!p) return null;
-      return { item_id: pid, item_name: p.name, price: p.price, quantity: 1 };
-    }).filter(Boolean);
-
-    // Optional: per-item upsell events
-    items.forEach(pid => {
-      const p = productMap[pid];
-      if (!p) return;
-      gtag("event", "upsell_purchase", {
-        item_id: pid,
-        item_name: p.name,
-        price: p.price,
-        value: p.price,
-        currency: "USD",
-        vtid: vtid
-      });
-    });
-
-    // Main purchase event
-    gtag("event", "purchase", {
-      transaction_id: orderID,
-      value: amount,
-      currency: "USD",
-      vtid: vtid,
-      items: ga4Items
-    });
-  });
-</script>
-
-<title>Watch This</title>
+<title>IMPORTANT: Watch This Short Video Now</title>
 
 <style>
-  :root{
-    --bg:#f2f4f7;
-    --card:#ffffff;
-    --text:#111;
-    --muted:#5b6472;
-    --gold1:#c9a46a;
-    --gold2:#8d6a3d;
-  }
   *{box-sizing:border-box}
+
   body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:var(--bg);
+    background:#ffffff;              /* ✅ white background */
     padding:40px 14px;
-    color:var(--text);
+    color:#000000;                   /* ✅ black text */
   }
+
   .card{
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--card);
-    border: 1px solid #e6e6e6;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    padding: 28px;
+    max-width:900px;
+    margin:0 auto;
+    background:#ffffff;              /* ✅ white */
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 4px 24px rgba(0,0,0,0.06);
   }
-  .center{text-align:center}
+
   h1{
-    margin: 0 0 10px;
-    font-size: 24px;
-    letter-spacing: -0.2px;
+    text-align:center;
+    font-size:26px;
+    font-weight:900;
+    margin-bottom:6px;
+    color:#000;                      /* ✅ black */
   }
+
   .sub{
-    margin: 0 0 18px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.5;
+    text-align:center;
+    font-size:14px;
+    margin-bottom:20px;
+    color:#000;                      /* ✅ black */
   }
 
-  /* Clickable hero (opens modal) */
   .hero{
-    margin-top: 18px;
-    border-radius: 14px;
-    overflow:hidden;
     cursor:pointer;
-    border: 1px solid rgba(141,106,61,0.18);
-    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-    position: relative;
+    border-radius:14px;
+    overflow:hidden;
     background:#000;
-  }
-  .hero img{
-    display:block;
-    width:100%;
-    height:auto;
-    opacity:0.95;
-  }
-  .hero::after{
-    content:"▶ Click to watch";
-    position:absolute;
-    left:14px;
-    bottom:14px;
-    padding:10px 12px;
-    border-radius: 12px;
-    color:#fff;
-    font-weight: 800;
-    font-size: 13px;
-    background: rgba(0,0,0,0.55);
-    border:1px solid rgba(255,255,255,0.18);
-    backdrop-filter: blur(6px);
+    box-shadow:0 10px 26px rgba(0,0,0,0.15);
   }
 
-  /* Modal */
+  .hero img{
+    width:100%;
+    display:block;
+  }
+
+  /* MODAL */
   #videoModal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.68);
+    background:rgba(0,0,0,0.7);
     backdrop-filter: blur(6px);
     z-index:99999;
     align-items:flex-start;
     justify-content:center;
-    padding: 18px;
+    padding:18px;
     overflow-y:auto;
-    -webkit-overflow-scrolling: touch;
   }
+
   #videoModalInner{
+    max-width:960px;
     width:100%;
-    max-width: 980px;
-    margin: 18px 0;
-    border-radius: 18px;
+    background:#ffffff;              /* ✅ white */
+    border-radius:18px;
     overflow:hidden;
-    box-shadow: 0 0 35px rgba(214,183,122,0.55), 0 18px 60px rgba(0,0,0,0.55);
-    background:#000;
+    margin:20px 0;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
     position:relative;
   }
+
   .close-btn{
     position:absolute;
     top:12px;
     right:12px;
+    color:#fff;
     font-size:26px;
     cursor:pointer;
-    color:#fff;
+    background:rgba(0,0,0,0.6);
     padding:6px 12px;
-    background:rgba(0,0,0,0.55);
     border-radius:10px;
     z-index:2;
-    user-select:none;
   }
-  .video-wrap{
+
+  iframe{
+    width:100%;
+    height:520px;
+    border:0;
+    display:block;
     background:#000;
   }
-  iframe{
+
+  .content{
+    background:#ffffff;              /* ✅ white */
+    padding:26px;
+    color:#000000;                   /* ✅ black */
+  }
+
+  .content h2{
+    text-align:center;
+    font-size:22px;
+    font-weight:900;
+    margin-bottom:14px;
+    color:#000;
+  }
+
+  .content p{
+    font-size:15px;
+    line-height:1.65;
+    margin-bottom:14px;
+    color:#000;                      /* ✅ black */
+  }
+
+  .cta{
     display:block;
     width:100%;
-    height: 520px;
-    border:0;
-  }
-
-  /* CTA under video */
-  .cta-wrap{
-    background:#fff;
-    padding: 22px;
+    padding:18px;
+    margin-top:18px;
     text-align:center;
-  }
-  .cta-title{
-    margin: 0 0 12px;
-    font-size: 16px;
-    font-weight: 800;
-    color:#111;
-  }
-  .video-cta{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-
-    width:100%;
-    padding: 18px 22px;
-    border-radius: 16px;
-
-    font-weight: 900;
-    letter-spacing: .2px;
-    font-size: 18px;
+    font-size:18px;
+    font-weight:900;
+    color:#ffffff;
     text-decoration:none;
-    color:#fff;
-
-    border:1px solid rgba(255,255,255,0.18);
-    background:
-      radial-gradient(120% 120% at 20% 0%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%),
-      linear-gradient(90deg, var(--gold1), var(--gold2));
-    box-shadow:
-      0 12px 28px rgba(0,0,0,0.25),
-      0 0 0 1px rgba(214,183,122,0.16),
-      0 0 26px rgba(214,183,122,0.42);
-    transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
-    position:relative;
-    overflow:hidden;
-    animation: ctaGlow 2.4s infinite ease-in-out;
-  }
-  .video-cta::before{
-    content:"";
-    position:absolute;
-    inset:-40%;
-    background: linear-gradient(
-      120deg,
-      rgba(255,255,255,0) 35%,
-      rgba(255,255,255,0.28) 50%,
-      rgba(255,255,255,0) 65%
-    );
-    transform: translateX(-60%) rotate(12deg);
-    transition: transform 600ms ease;
-    pointer-events:none;
-  }
-  .video-cta:hover{
-    transform: translateY(-2px);
-    filter: brightness(1.04);
-    box-shadow:
-      0 16px 40px rgba(0,0,0,0.30),
-      0 0 0 1px rgba(214,183,122,0.20),
-      0 0 34px rgba(214,183,122,0.62);
-  }
-  .video-cta:hover::before{ transform: translateX(60%) rotate(12deg); }
-  .video-cta:active{ transform: translateY(0) scale(0.99); }
-
-  @keyframes ctaGlow{
-    0%   { box-shadow: 0 12px 28px rgba(0,0,0,0.25), 0 0 0 1px rgba(214,183,122,0.16), 0 0 22px rgba(214,183,122,0.35); }
-    50%  { box-shadow: 0 14px 34px rgba(0,0,0,0.30), 0 0 0 1px rgba(214,183,122,0.20), 0 0 34px rgba(214,183,122,0.60); }
-    100% { box-shadow: 0 12px 28px rgba(0,0,0,0.25), 0 0 0 1px rgba(214,183,122,0.16), 0 0 22px rgba(214,183,122,0.35); }
+    border-radius:16px;
+    background:linear-gradient(90deg,#c9a46a,#8d6a3d);
+    box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    animation:pulse 2.2s infinite;
   }
 
-  @media (max-width: 700px){
-    body{ padding:26px 12px; }
-    iframe{ height: 54vh; min-height: 320px; }
-    .card{ padding: 22px; }
+  @keyframes pulse{
+    0%{box-shadow:0 0 18px rgba(201,164,106,0.45)}
+    50%{box-shadow:0 0 32px rgba(201,164,106,0.85)}
+    100%{box-shadow:0 0 18px rgba(201,164,106,0.45)}
+  }
+
+  @media(max-width:700px){
+    iframe{height:55vh;}
   }
 </style>
 </head>
 
 <body>
-  <div class="card">
-    <div class="center">
-      <h1>IMPORTANT: Watch This Short Video Now</h1>
-      <p class="sub">$1k-$5k/Day Method</p>
-    </div>
 
-    <!-- Click to open video modal -->
-    <div class="hero" onclick="openVideoModal()" role="button" aria-label="Open video">
-      <img src="/images/watchthis.png" alt="Watch Video" />
-    </div>
+<div class="card">
+  <h1>IMPORTANT: Watch This Short Video Now</h1>
+  <div class="sub">$1k–$5k / Day Method</div>
+
+  <div class="hero" onclick="openVideoModal()">
+    <img src="/images/watchthis.png" alt="Watch Video">
   </div>
+</div>
 
-  <!-- VIDEO MODAL -->
-  <div id="videoModal" aria-hidden="true">
-    <div id="videoModalInner">
-      <span class="close-btn" onclick="closeVideoModal()">✖</span>
+<!-- VIDEO MODAL -->
+<div id="videoModal">
+  <div id="videoModalInner">
 
-      <div class="video-wrap">
-        <iframe
-          id="welcomeVideo"
-          src=""
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
+    <span class="close-btn" onclick="closeVideoModal()">✖</span>
 
+    <iframe
+      id="welcomeVideo"
+      src=""
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
 
-      <div class="content">
-        <h2>Imagine Waking Up To $1,000–$5,000 A Day</h2>
-  
-        <p>
-          Imagine rolling out of bed, checking your phone, and seeing an extra
-          <strong>$1,000, $3,000, or even $5,000</strong> deposited into your account—
-          without grinding away at a 9-to-5 job, begging for overtime, or stressing
-          over side hustles that barely pay the bills.
-        </p>
-  
-        <p>
-          This isn't some wild fantasy—it’s a <strong>real, proven system</strong> that
-          countless everyday people are using to generate consistent, life-changing
-          income on autopilot.
-        </p>
-  
-        <p>
-          No experience? No problem.<br>
-          No tech skills? Doesn’t matter.<br>
-          This works for <strong>anyone</strong> willing to follow a simple,
-          step-by-step process.
-        </p>
-  
-        <p>
-          The best part? <strong>It runs 24/7 — even while you sleep.</strong>
-        </p>
-  
-        <p>
-          🔥 <strong>Ready to break free from financial stress and start living life on your terms?</strong> 🔥
-        </p>
-  
-        <p>
-          Click the button below and discover how you can wake up to an extra
-          <strong>$1,000–$5,000 in your bank account every single day.</strong>
-        </p>
-  
-        <a class="cta"
-        href="https://jvz3.com/c/3218449/415009?tid=welcome1bridge"
-        target="_blank"
-           rel="noopener">
-          ▶ Watch Free Training Now
-        </a>
-      </div>
+    <div class="content">
+      <h2>Imagine Waking Up To $1,000–$5,000 A Day</h2>
 
+      <p>
+        Imagine rolling out of bed, checking your phone, and seeing an extra
+        <strong>$1,000, $3,000, or even $5,000</strong> deposited into your account—
+        without grinding away at a 9-to-5 job or stressing over side hustles.
+      </p>
 
-  
+      <p>
+        This isn’t a fantasy. It’s a <strong>real, proven system</strong> everyday people
+        are using to generate consistent income on autopilot.
+      </p>
+
+      <p>
+        No experience. No tech skills.<br>
+        Just a simple, step-by-step process.
+      </p>
+
+      <p>
+        <strong>It runs 24/7 — even while you sleep.</strong>
+      </p>
+
+      <p>
+        🔥 <strong>Ready to break free from financial stress?</strong> 🔥
+      </p>
+
+      <p>
+        Click below to discover how you could wake up to
+        <strong>$1,000–$5,000 per day.</strong>
+      </p>
+
+      <a class="cta"
+         href="https://jvz3.com/c/3218449/415009?tid=welcome1bridge"
+         target="_blank"
+         rel="noopener">
+        ▶ Watch Free Training Now
+      </a>
+    </div>
+
+  </div>
+</div>
+
 <script>
-  function openVideoModal() {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("welcomeVideo");
+function openVideoModal(){
+  document.getElementById("videoModal").style.display="flex";
+  document.getElementById("welcomeVideo").src =
+    "https://fast.wistia.net/embed/iframe/enubdt4h1t?autoplay=1";
+  document.body.style.overflow="hidden";
+}
 
-    modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", "false");
-
-    // Wistia iframe (autoplay)
-    iframe.src = "https://fast.wistia.net/embed/iframe/enubdt4h1t?autoplay=1";
-
-    // Stop background scroll
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeVideoModal() {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("welcomeVideo");
-
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
-
-    // Stop video
-    iframe.src = "";
-
-    // Restore scroll
-    document.body.style.overflow = "";
-  }
-
-  // Close on ESC
-  document.addEventListener("keydown", function(e){
-    if (e.key === "Escape") closeVideoModal();
-  });
-
-  // Close if clicking outside inner box
-  document.getElementById("videoModal").addEventListener("click", function(e){
-    if (e.target.id === "videoModal") closeVideoModal();
-  });
+function closeVideoModal(){
+  document.getElementById("videoModal").style.display="none";
+  document.getElementById("welcomeVideo").src="";
+  document.body.style.overflow="";
+}
 </script>
 
 </body>
