@@ -22,27 +22,26 @@
     margin:0;
     font-family: Arial, sans-serif;
     background:#ffffff;
-    padding:0; /* top bar uses full width */
+    padding:0;
     color:#000000;
   }
 
-  /* 🔴 FLASHING URGENCY BAR */
+  /* 🔴 RED BAR + 🟡 FLASHING TEXT */
   .urgency-bar{
     width:100%;
-    background:#c40000;
-    color:#fff;
+    background:#c40000;          /* solid red */
     text-align:center;
     padding:14px 10px;
     font-size:14px;
     font-weight:900;
     letter-spacing:0.6px;
-    animation: flashYellow 1.2s infinite;
+    animation: flashText 1.2s infinite;
   }
 
-  @keyframes flashYellow{
-    0%   { background:#c40000; color:#fff; }
-    50%  { background:#ffd400; color:#000; }
-    100% { background:#c40000; color:#fff; }
+  @keyframes flashText{
+    0%   { color:#ffd400; }      /* yellow */
+    50%  { color:#ffffff; }      /* white */
+    100% { color:#ffd400; }      /* yellow */
   }
 
   .page-wrap{
@@ -176,7 +175,7 @@
 
 <body>
 
-<!-- 🔴 FLASHING BAR -->
+<!-- 🔴 URGENCY BAR -->
 <div class="urgency-bar">
   ⏰ ONLY AVAILABLE FOR THE NEXT 24 HOURS
 </div>
