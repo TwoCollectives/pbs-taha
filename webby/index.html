@@ -21,38 +21,15 @@
   body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:#ffffff;
-    padding:0;
-    color:#000000;
-  }
-
-  /* 🔴 RED BAR + 🟡 TEXT FADES IN / OUT */
-  .urgency-bar{
-    width:100%;
-    background:#c40000;      /* stays red */
-    text-align:center;
-    padding:14px 10px;
-    font-size:14px;
-    font-weight:900;
-    letter-spacing:0.6px;
-    color:#ffd400;           /* stays yellow */
-    animation: textFade 1.4s infinite;
-  }
-
-  @keyframes textFade{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-  }
-
-  .page-wrap{
+    background:#ffffff;              /* ✅ white background */
     padding:40px 14px;
+    color:#000000;                   /* ✅ black text */
   }
 
   .card{
     max-width:900px;
     margin:0 auto;
-    background:#ffffff;
+    background:#ffffff;              /* ✅ white */
     border-radius:18px;
     padding:28px;
     box-shadow:0 4px 24px rgba(0,0,0,0.06);
@@ -63,7 +40,14 @@
     font-size:26px;
     font-weight:900;
     margin-bottom:6px;
-    color:#000;
+    color:#000;                      /* ✅ black */
+  }
+
+  .sub{
+    text-align:center;
+    font-size:14px;
+    margin-bottom:20px;
+    color:#000;                      /* ✅ black */
   }
 
   .hero{
@@ -96,7 +80,7 @@
   #videoModalInner{
     max-width:960px;
     width:100%;
-    background:#ffffff;
+    background:#ffffff;              /* ✅ white */
     border-radius:18px;
     overflow:hidden;
     margin:20px 0;
@@ -126,9 +110,9 @@
   }
 
   .content{
-    background:#ffffff;
+    background:#ffffff;              /* ✅ white */
     padding:26px;
-    color:#000000;
+    color:#000000;                   /* ✅ black */
   }
 
   .content h2{
@@ -143,7 +127,7 @@
     font-size:15px;
     line-height:1.65;
     margin-bottom:14px;
-    color:#000;
+    color:#000;                      /* ✅ black */
   }
 
   .cta{
@@ -176,18 +160,11 @@
 
 <body>
 
-<!-- 🔴 URGENCY BAR -->
-<div class="urgency-bar" id="urgencyBar">
-  ⏰ Available until: loading…
-</div>
+<div class="card">
+  <h1>IMPORTANT: Watch This Short Video Now</h1>
 
-<div class="page-wrap">
-  <div class="card">
-    <h1>IMPORTANT: Watch This Short Video Now</h1>
-
-    <div class="hero" onclick="openVideoModal()">
-      <img src="/images/watchthis2.png" alt="Watch Video">
-    </div>
+  <div class="hero" onclick="openVideoModal()">
+    <img src="/images/watchthis2.png" alt="Watch Video">
   </div>
 </div>
 
@@ -213,6 +190,29 @@
         without grinding away at a 9-to-5 job or stressing over side hustles.
       </p>
 
+      <p>
+        This isn’t a fantasy. It’s a <strong>real, proven system</strong> everyday people
+        are using to generate consistent income on autopilot.
+      </p>
+
+      <p>
+        No experience. No tech skills.<br>
+        Just a simple, step-by-step process.
+      </p>
+
+      <p>
+        <strong>It runs 24/7 — even while you sleep.</strong>
+      </p>
+
+      <p>
+        🔥 <strong>Ready to break free from financial stress?</strong> 🔥
+      </p>
+
+      <p>
+        Click below to discover how you could wake up to
+        <strong>$1,000–$5,000 per day.</strong>
+      </p>
+
       <a class="cta"
          href="https://jvz3.com/c/3218449/415009?tid=welcome1bridge"
          target="_blank"
@@ -223,26 +223,6 @@
 
   </div>
 </div>
-
-<script>
-/* ⏰ Set "Available until" = tomorrow, same local time */
-(function(){
-  const bar = document.getElementById("urgencyBar");
-  const now = new Date();
-  const tomorrow = new Date(now);
-  tomorrow.setDate(now.getDate() + 1);
-
-  const options = {
-    weekday:'long',
-    month:'long',
-    day:'numeric',
-    hour:'numeric',
-    minute:'2-digit'
-  };
-
-  bar.innerHTML = `⏰ Available until: <strong>${tomorrow.toLocaleString(undefined, options)}</strong>`;
-})();
-</script>
 
 <script>
 function openVideoModal(){
